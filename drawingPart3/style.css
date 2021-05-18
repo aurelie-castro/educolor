@@ -1,0 +1,21 @@
+body {
+/*    background-image : url("educolor-example.jpg");*/
+    margin: 0;
+/*    padding: :0;*/
+/*    background-color: aquamarine;*/
+}
+
+#title {
+    text-align: center;
+    font-size: x-large;
+    font-family: sans-serif;
+    color: #FFFFFF;
+/*
+    margin-top: 20;
+    margin-bottom: 20
+*/
+}
+
+#frogger {
+    
+}
