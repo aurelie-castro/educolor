@@ -10,8 +10,12 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
-//var uuu;
+
+//---------variables globales-----------
+//var du background 1
 var bg;
+
+//var des couleurs
 var blueColor;
 var redColor;
 var yellowColor;
@@ -20,39 +24,76 @@ var purpleColor;
 var blueLightColor;
 var orangeColor;
 var blackColor;
+var greenKakiColor;
+var brownColor;
+var pinkColor;
+var greyColor;
+
+//pas besoin
 var next1Clicked;
 
+//var des boules colorées
+var testBoules;
+
+//var du bouton next
 var next;
 
+var testTest;
+
+//façon pour enlever les warn inutiles dans la console
+//qui faisaient lagger la page
 console.warn = () => {};
 
 function preload ()
 {
-    //----brushes---
-    //works
+    var bgImage = this.load.image('testEdu', 'educolor.jpeg');
+//    var textBtn = this.add.text(150,550, 'PLAYYYYYY', { font: '64px Arial' });
+    //--------brushes-------
+    //white
     this.load.image('balls', './boules/blanc.png');
-    //works
+    
+    //blue
     this.load.image('blue', './boules/bleu.png');
-    //works
+    
+    //red
     this.load.image('red', './boules/rouge-01.png');
-    //works
+    
+    //yellow
     this.load.image('yellow', './boules/jaune2.png');
-    //works
-    this.load.image('green', './boules/vert-01.png');
-//    this.load.image('purple', './boules/rose.png');
-    //works
+    
+    //green
+    this.load.image('green', './boules/vert.png');
+    
+    //pink
     this.load.image('pink', './boules/rose.png');
     
-    //works
+    //blueLight
     this.load.image('blueLight', './boules/bleuclair.png');
     
+    //orange
     this.load.image('orange', './boules/orange.png');
     
-    this.load.image('black', './boules/noir.png');
+    //black
+    this.load.image('black', './boules/dotdot.png');
+    
+    //purple
+    this.load.image('purple', './boules/violet.png');
+    
+    //greenKaki
+    this.load.image('greenKaki', './boules/vertkaki.png');
+    
+    //brown
+    this.load.image('brown', './boules/brun.png');
+    
+    //pink
+    this.load.image('pink', './boules/rose.png');
+    
+    //grey
+    this.load.image('grey', './boules/gris.png');
     
     
     //---background---
-    this.load.image('bg', 'p1.jpeg');
+    this.load.image('bg', 'p1-new.jpeg');
     this.load.image('bg2', 'p2-1.jpeg');
     this.load.image('bg3', 'p2-2.jpeg');
     this.load.image('bg4', 'p3-1.jpeg');
@@ -70,6 +111,9 @@ function preload ()
     this.load.image('bg16', 'p7-1.jpeg');
     this.load.image('bg17', 'p7-2.jpeg');
     
+    //-----rangées de cercles-----------
+    this.load.image('testBoules', 'couleurs-version3.png');
+    
     
     
 }
@@ -84,24 +128,42 @@ function create ()
     
 //    var TEST = this.add.image(200,620, 'blue');
 //    TEST.setScale(10);
+    bgImage = this.add.image(180, 310, 'testEdu');
+    bgImage.setDepth(2);
+    bgImage.setScale(0.35);
     
+//    textBtn.setDepth(0);
+//    textBtn.setTint('#000000');
     
-    //couleur de base de la brush
+//-----couleur de base de la brush----
     blackColor = true;
     next1Clicked = false;
     
+//---------image des deux rangées de cercles-----------
+    testBoules = this.add.image(204, 52, 'testBoules');
+    testBoules.setScale(0.6);
     
+    
+//--------background images------------
 //image de background 1 = dessin 1
-//    localStorage.setItem("dessin fini", "0");
-    //si le user clique sur next alors...
+//  localStorage.setItem("dessin fini", "0");
+    
+    
+//si le user clique sur next alors ça va chercher la valeur de 'dessin fini' dans le localstorage
+//et en dépendant de cette valeur, ça affiche la bonne image
+    
     var dessinFini = localStorage.getItem("dessin fini");
-    if(dessinFini === "0"){
-        bg = this.add.image(180, 300, 'bg');
-        bg.setScale(0.5);
-    }
+//    if(dessinFini === "0"){
+//        bg = this.add.image(180, 300, 'bg');
+//        bg.setScale(0.5);
+//    }
+    bg = this.add.image(175, 330, 'bg');
+    bg.setScale(0.7);
+    
     if(dessinFini === "1"){
         bg2 = this.add.image(180, 300, 'bg2');
         bg2.setScale(0.5);
+        bg.setVisible(false);
     }
     
     if(dessinFini === "2"){
@@ -173,9 +235,14 @@ function create ()
     
 //    this.add.image(100,100, 'test');
     
+    //----------------interaction des brush = dessin---------------------------
+    
     this.input.on('pointermove', function (pointer) {
         
-        //si user clique sur btn de couleur...
+        //si user déplace sa souris/doigt sur l'image 
+        //et cela fait apparaître une boule colorée (de la couleur choisie)
+        //à l'endroit où il a fait cela
+        //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
 
         if (pointer.isDown && blackColor === true && next1Clicked === false)
         {
@@ -183,7 +250,7 @@ function create ()
         }
         
         if(pointer.isDown && redColor === true){
-            this.add.image(pointer.x, pointer.y, 'red', Phaser.Math.Between(0, 10.3));
+            testTest = this.add.image(pointer.x, pointer.y, 'red', Phaser.Math.Between(0, 10.3));
         }
         
         if(pointer.isDown && yellowColor === true){
@@ -210,123 +277,221 @@ function create ()
             this.add.image(pointer.x, pointer.y, 'blue', Phaser.Math.Between(0, 10.3));
         }
         
+        if(pointer.isDown && greenKakiColor === true){
+            this.add.image(pointer.x, pointer.y, 'greenKaki', Phaser.Math.Between(0, 10.3));
+        }
+        
+        if(pointer.isDown && brownColor === true){
+            this.add.image(pointer.x, pointer.y, 'brown', Phaser.Math.Between(0, 10.3));
+        }
+        
+        if(pointer.isDown && pinkColor === true){
+            this.add.image(pointer.x, pointer.y, 'pink', Phaser.Math.Between(0, 10.3));
+        }
+        
+        if(pointer.isDown && greyColor === true){
+            this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
+        }
+        
         
 
     }, this);
     
-    //quand l'user clique sur un des cercles
+
+    //-----------------changement de couleur----------------------
+    //quand l'user clique sur un des cercles pour choisir la couleur de sa brush
     this.input.on('pointerdown', function(pointer){
         console.log('hello');
         console.log(pointer.x);
         console.log(pointer.y);
         
-        if(pointer.x >= 130 && pointer.x <= 140  && pointer.y >= 250 && pointer.y <=260){
+        if(pointer.x >= 134 && pointer.x <= 164  && pointer.y >= 21 && pointer.y <=49){
             console.log('cliqué sur le yellow');
             yellowColor = true;
             greenColor = false;
             redColor = false;
             blueColor = false;
             purpleColor = false;
-//            brownColor = false;
-//            greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = false;
-//            greyColor = false; 
-            blueLightColor = false; 
-//            roseColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 115 && pointer.x <= 125  && pointer.y >= 250 && pointer.y <=260){
+        if(pointer.x >= 75 && pointer.x <= 103  && pointer.y >= 68 && pointer.y <=95){
             console.log('cliqué sur le red');
             yellowColor = false;
             greenColor = false;
             redColor = true;
             blueColor = false;
             purpleColor = false;
-//            brownColor = false;
-//            greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = false;
-//            greyColor = false; 
-            blueLightColor = false; 
-//            roseColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 10 && pointer.x <= 15  && pointer.y >= 80 && pointer.y <=85){
+        if(pointer.x >= 252 && pointer.x <= 281  && pointer.y >= 20 && pointer.y <=49){
             console.log('cliqué sur le green');
             greenColor = true;
             yellowColor = false;
             redColor = false;
             blueColor = false;
+            purpleColor = false;
+              brownColor = false;
+            greenKakiColor = false; 
+            blackColor = false; 
+            orangeColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 9 && pointer.x <= 13  && pointer.y >= 110 && pointer.y <=120){
+        if(pointer.x >= 133 && pointer.x <= 161  && pointer.y >= 67 && pointer.y <=98){
             console.log('cliqué sur le purple');
             yellowColor = false;
             greenColor = false;
             redColor = false;
             blueColor = false;
             purpleColor = true;
-//            brownColor = false;
-//            greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = false;
-//            greyColor = false; 
-            blueLightColor = false; 
-//            roseColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 145 && pointer.x <= 150  && pointer.y >= 250 && pointer.y <=260){
+        if(pointer.x >= 310 && pointer.x <= 338  && pointer.y >= 67 && pointer.y <=97){
             console.log('cliqué sur le blue light');
             yellowColor = false;
             greenColor = false;
             redColor = false;
             blueColor = false;
             purpleColor = false;
-//            brownColor = false;
-//            greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = false;
-//            greyColor = false; 
-            blueLightColor = true; 
-//            roseColor = false;
+            greyColor = false; 
+            blueLightColor = true;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 175 && pointer.x <= 180  && pointer.y >= 250 && pointer.y <=260){
+        if(pointer.x >= 15 && pointer.x <= 45  && pointer.y >= 20 && pointer.y <=47){
             console.log('cliqué sur le orange');
             yellowColor = false;
             greenColor = false;
             redColor = false;
             blueColor = false;
             purpleColor = false;
-//            brownColor = false;
-//            greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = true;
-//            greyColor = false; 
-            blueLightColor = false; 
-//            roseColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
-        if(pointer.x >= 160 && pointer.x <= 170  && pointer.y >= 250 && pointer.y <=260){
+        if(pointer.x >= 309 && pointer.x <= 337  && pointer.y >= 19 && pointer.y <=49){
             console.log('cliqué sur le blue');
             yellowColor = false;
             greenColor = false;
             redColor = false;
             blueColor = true;
             purpleColor = false;
-    //        brownColor = false;
-    //        greenKakiColor = false; 
+            brownColor = false;
+            greenKakiColor = false; 
             blackColor = false; 
             orangeColor = false;
-    //      greyColor = false; 
-            blueLightColor = false; 
-    //        roseColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
         }
         
+        if(pointer.x >= 193 && pointer.x <= 223  && pointer.y >= 18 && pointer.y <=50){
+            console.log('cliqué sur le greenKaki');
+            yellowColor = false;
+            greenColor = false;
+            redColor = false;
+            blueColor = false;
+            purpleColor = false;
+            brownColor = false;
+            greenKakiColor = true; 
+            blackColor = false; 
+            orangeColor = false;
+            greyColor = false; 
+            blueLightColor = false;
+            pinkColor = false;
+        }
+        
+        if(pointer.x >= 74 && pointer.x <= 103  && pointer.y >= 18 && pointer.y <=51){
+            console.log('cliqué sur le brown');
+            yellowColor = false;
+            greenColor = false;
+            redColor = false;
+            blueColor = false;
+            purpleColor = false;
+            brownColor = true;
+            greenKakiColor = false; 
+            blackColor = false; 
+            orangeColor = false;
+            greyColor = false; 
+            blueLightColor = false; 
+            pinkColor = false;
+        }
+        
+        if(pointer.x >= 193 && pointer.x <= 221  && pointer.y >= 68 && pointer.y <=98){
+            console.log('cliqué sur le pink');
+            yellowColor = false;
+            greenColor = false;
+            redColor = false;
+            blueColor = false;
+            purpleColor = false;
+            brownColor = false;
+            greenKakiColor = false; 
+            blackColor = false; 
+            orangeColor = false;
+            greyColor = false; 
+            blueLightColor = false; 
+            pinkColor = true;
+        }
+        
+        if(pointer.x >= 254 && pointer.x <= 279  && pointer.y >= 69 && pointer.y <=97){
+            console.log('cliqué sur le grey');
+            yellowColor = false;
+            greenColor = false;
+            redColor = false;
+            blueColor = false;
+            purpleColor = false;
+            brownColor = false;
+            greenKakiColor = false; 
+            blackColor = false; 
+            orangeColor = false;
+            greyColor = true; 
+            blueLightColor = false; 
+            pinkColor = false;
+        }
+        
+        //interaction si clic sur le btn play du start
+         if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
+             bgImage.setVisible(false);
+         }
+        
+    //-------------interaction du bouton next-------------
         if(pointer.x >= 150 && pointer.x <= 186  && pointer.y >= 550 && pointer.y <=562){
             console.log("next cliqué");
+            bg.setVisible(false);
             next1Clicked = true;
+//            testTest.setVisible(false);
             
             if(dessinFini === "0"){
                 localStorage.setItem("dessin fini", "1");
@@ -340,6 +505,7 @@ function create ()
             
             if(dessinFini === "2"){
                 localStorage.setItem("dessin fini", "3");
+                bg3.setVisible(false);
 //                bg2.setVisible(false);
 //                bg.setVisible(false);
             }
@@ -364,6 +530,9 @@ function create ()
                 localStorage.setItem("dessin fini", "7");
 //                bg2.setVisible(false);
 //                bg.setVisible(false);
+                bg7.setVisible(false);
+//                bg6.setVisible(false);
+
             }
             
             if(dessinFini === "7"){
@@ -413,6 +582,9 @@ function create ()
 //                bg2.setVisible(false);
 //                bg.setVisible(false);
             }
+            
+            //ceci rafraichit la page pour pouvoir effacer les choses
+            //que l'utilisateur a dessiné
             location.reload();
             
             
@@ -423,7 +595,7 @@ function create ()
     });
     
     //--------bouton pour mettre fullscreen------
-    var button = this.add.image(30, 16, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
+    var button = this.add.image(30, 160, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
     //mettre ce bouton sur le start et mettre une icone belle
     //DOIT etre executé avec btnclick
 
