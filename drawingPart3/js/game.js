@@ -46,7 +46,7 @@ console.warn = () => {};
 
 function preload ()
 {
-    var bgImage = this.load.image('testEdu', 'educolor.jpeg');
+    var bgImage = this.load.image('testEdu', '../assets/images/educolor.jpeg');
 //    var textBtn = this.add.text(150,550, 'PLAYYYYYY', { font: '64px Arial' });
     //--------brushes-------
     //white
@@ -93,26 +93,26 @@ function preload ()
     
     
     //---background---
-    this.load.image('bg', 'p1-new.jpeg');
-    this.load.image('bg2', 'p2-1.jpeg');
-    this.load.image('bg3', 'p2-2.jpeg');
-    this.load.image('bg4', 'p3-1.jpeg');
-    this.load.image('bg5', 'p3-3.jpeg');
-    this.load.image('bg6', 'p4-1.jpeg');
-    this.load.image('bg7', 'p4-2.jpeg');
-    this.load.image('bg8', 'p4-3.jpeg');
-    this.load.image('bg9', 'p4-4.jpeg');
-    this.load.image('bg10', 'p5-1.jpeg');
-    this.load.image('bg11', 'p5-2.jpeg');
-    this.load.image('bg12', 'p5-3.jpeg');
-    this.load.image('bg13', 'p6-1.jpeg');
-    this.load.image('bg14', 'p6-2.jpeg');
-    this.load.image('bg15', 'p6-3.jpeg');
-    this.load.image('bg16', 'p7-1.jpeg');
-    this.load.image('bg17', 'p7-2.jpeg');
+    this.load.image('bg', '../assets/images/backgrounds/p1-new.jpeg');
+    this.load.image('bg2', '../assets/images/backgrounds/p2-1.jpeg');
+    this.load.image('bg3', '../assets/images/backgrounds/p2-2.jpeg');
+    this.load.image('bg4', '../assets/images/backgrounds/p3-1.jpeg');
+    this.load.image('bg5', '../assets/images/backgrounds/p3-3.jpeg');
+    this.load.image('bg6', '../assets/images/backgrounds/p4-1.jpeg');
+    this.load.image('bg7', '../assets/images/backgrounds/p4-2.jpeg');
+    this.load.image('bg8', '../assets/images/backgrounds/p4-3.jpeg');
+    this.load.image('bg9', '../assets/images/backgrounds/p4-4.jpeg');
+    this.load.image('bg10', '../assets/images/backgrounds/p5-1.jpeg');
+    this.load.image('bg11', '../assets/images/backgrounds/p5-2.jpeg');
+    this.load.image('bg12', '../assets/images/backgrounds/p5-3.jpeg');
+    this.load.image('bg13', '../assets/images/backgrounds/p6-1.jpeg');
+    this.load.image('bg14', '../assets/images/backgrounds/p6-2.jpeg');
+    this.load.image('bg15', '../assets/images/backgrounds/p6-3.jpeg');
+    this.load.image('bg16', '../assets/images/backgrounds/p7-1.jpeg');
+    this.load.image('bg17', '../assets/images/backgrounds/p7-2.jpeg');
     
     //-----rangées de cercles-----------
-    this.load.image('testBoules', 'couleurs-version3.png');
+    this.load.image('testBoules', '../assets/images/palettes/couleurs-version3.png');
     
     
     
