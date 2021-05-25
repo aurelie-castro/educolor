@@ -175,57 +175,61 @@ function create ()
         //et cela fait apparaître une boule colorée (de la couleur choisie)
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
-            
-        if (pointer.isDown && blackColor === true)
-        {
-                this.add.image(pointer.x, pointer.y, 'black');
-        }
+        
+        if(pointer.y > 108 && pointer.y < 535){
+                
+            if (pointer.isDown && blackColor === true)
+            {
+                    this.add.image(pointer.x, pointer.y, 'black');
+            }
 
-        
-        if(pointer.isDown && redColor === true){
-            testIDK = this.add.image(pointer.x, pointer.y, 'red');
-        
+
+            if(pointer.isDown && redColor === true){
+                testIDK = this.add.image(pointer.x, pointer.y, 'red');
+
+            }
+
+            if(pointer.isDown && yellowColor === true){
+                this.add.image(pointer.x, pointer.y, 'yellow');
+            }
+
+             if(pointer.isDown && greenColor === true){
+                this.add.image(pointer.x, pointer.y, 'green', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && purpleColor === true){
+                this.add.image(pointer.x, pointer.y, 'purple', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && blueLightColor === true){
+                this.add.image(pointer.x, pointer.y, 'blueLight', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && orangeColor === true){
+                this.add.image(pointer.x, pointer.y, 'orange', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && blueColor === true){
+                this.add.image(pointer.x, pointer.y, 'blue', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && greenKakiColor === true){
+                this.add.image(pointer.x, pointer.y, 'greenKaki', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && brownColor === true){
+                this.add.image(pointer.x, pointer.y, 'brown', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && pinkColor === true){
+                this.add.image(pointer.x, pointer.y, 'pink', Phaser.Math.Between(0, 10.3));
+            }
+
+            if(pointer.isDown && greyColor === true){
+                this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
+            }
         }
         
-        if(pointer.isDown && yellowColor === true){
-            this.add.image(pointer.x, pointer.y, 'yellow');
-        }
-        
-         if(pointer.isDown && greenColor === true){
-            this.add.image(pointer.x, pointer.y, 'green', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && purpleColor === true){
-            this.add.image(pointer.x, pointer.y, 'purple', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && blueLightColor === true){
-            this.add.image(pointer.x, pointer.y, 'blueLight', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && orangeColor === true){
-            this.add.image(pointer.x, pointer.y, 'orange', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && blueColor === true){
-            this.add.image(pointer.x, pointer.y, 'blue', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && greenKakiColor === true){
-            this.add.image(pointer.x, pointer.y, 'greenKaki', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && brownColor === true){
-            this.add.image(pointer.x, pointer.y, 'brown', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && pinkColor === true){
-            this.add.image(pointer.x, pointer.y, 'pink', Phaser.Math.Between(0, 10.3));
-        }
-        
-        if(pointer.isDown && greyColor === true){
-            this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
-        }
         
 
     }, this);
@@ -239,6 +243,7 @@ function create ()
         console.log('hello');
         console.log(pointer.x);
         console.log(pointer.y);
+    
         
         if(pointer.x >= 134 && pointer.x <= 164  && pointer.y >= 21 && pointer.y <=49){
             console.log('cliqué sur le yellow');
