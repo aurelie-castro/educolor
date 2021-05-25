@@ -40,13 +40,17 @@ var next;
 
 var testTest;
 
+let testIDK = [];
+
+let scribbles;
+
 //façon pour enlever les warn inutiles dans la console
 //qui faisaient lagger la page
 console.warn = () => {};
 
 function preload ()
 {
-    var bgImage = this.load.image('testEdu', '../assets/images/educolor.jpeg');
+    var bgImage = this.load.image('testEdu', '../assets/images/covereducolor-02.jpg');
 //    var textBtn = this.add.text(150,550, 'PLAYYYYYY', { font: '64px Arial' });
     //--------brushes-------
     //white
@@ -122,15 +126,16 @@ function create ()
 {
 //    var test = this.add.sprite(100, 100, 'balls');
 //    test.setScale(0.5);
+
     
 //    uuu = this.add.text(100,100, 'UUU');
 //    uuu.fontSize = 7000;
     
 //    var TEST = this.add.image(200,620, 'blue');
 //    TEST.setScale(10);
-    bgImage = this.add.image(180, 310, 'testEdu');
+    bgImage = this.add.image(160, 320, 'testEdu');
     bgImage.setDepth(2);
-    bgImage.setScale(0.35);
+    bgImage.setScale(1);
     
 //    textBtn.setDepth(0);
 //    textBtn.setTint('#000000');
@@ -232,7 +237,6 @@ function create ()
     }
 
 
-    
 //    this.add.image(100,100, 'test');
     
     //----------------interaction des brush = dessin---------------------------
@@ -243,18 +247,36 @@ function create ()
         //et cela fait apparaître une boule colorée (de la couleur choisie)
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
-
+            
         if (pointer.isDown && blackColor === true && next1Clicked === false)
         {
-            this.add.image(pointer.x, pointer.y, 'black', Phaser.Math.Between(0, 10.3));
+            testIDK = this.add.image(pointer.x, pointer.y, 'black');
+            scribbles = this.add.group({
+                defaultKey: 'black',
+                maxSize: 50,
+                gridAlign: {
+                x: 10,
+                y: 10,
+//                width: 1,
+//                height: 12,
+//                cellWidth: 50,
+//                cellHeight: 50
+                },
+            });
         }
+
         
         if(pointer.isDown && redColor === true){
-            testTest = this.add.image(pointer.x, pointer.y, 'red', Phaser.Math.Between(0, 10.3));
+            testTest = this.add.image(pointer.x, pointer.y, 'red');
+//            scribbles.getChildren().forEach(function (snowflake) {
+//                    snowflake.destroy();
+//                    console.log("melody");
+//            }, this);
+        
         }
         
         if(pointer.isDown && yellowColor === true){
-            this.add.image(pointer.x, pointer.y, 'yellow', Phaser.Math.Between(0, 10.3));
+            this.add.image(pointer.x, pointer.y, 'yellow');
         }
         
          if(pointer.isDown && greenColor === true){
@@ -293,9 +315,13 @@ function create ()
             this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
         }
         
-        
 
     }, this);
+    
+//    testIDK.setVisible(false);
+    
+    
+//    testIDK.destroy(true);
     
 
     //-----------------changement de couleur----------------------
@@ -466,6 +492,7 @@ function create ()
         }
         
         if(pointer.x >= 254 && pointer.x <= 279  && pointer.y >= 69 && pointer.y <=97){
+            testIDK.setVisible(false);
             console.log('cliqué sur le grey');
             yellowColor = false;
             greenColor = false;
@@ -479,6 +506,7 @@ function create ()
             greyColor = true; 
             blueLightColor = false; 
             pinkColor = false;
+            
         }
         
         //interaction si clic sur le btn play du start
@@ -612,6 +640,7 @@ function create ()
                 button.setFrame(1);
 
                 this.scale.startFullscreen();
+                console.log(testIDK);
             }
 
         }, this);
