@@ -49,15 +49,15 @@ var next;
 
 var testTest;
 
-
+//conteur du nombre de fois où next a été cliqué
 let imageIndex = 0;
 
 let startClicked;
 
+
+//vars relatives à la gomme
 let randomVariable;
-
 let eraser;
-
 let stopColoring;
 
 //façon pour enlever les warn inutiles dans la console
@@ -130,6 +130,7 @@ function preload ()
     //-----rangées de cercles-----------
     this.load.image('testBoules', '../assets/images/palettes/couleurs-version3.png');
     
+    //-----eraser---------------
     this.load.image('eraser', '../assets/images/eraser (2).png');
     
     
@@ -169,12 +170,11 @@ function create ()
     testBoules.setScale(0.6);
     testBoules.setDepth(1);
     
+//-------vars par rapport à la gomme-----------------
     randomVariable = false;
-    
     eraser = this.add.image(90, 580, 'eraser');
     eraser.setDepth(1);
     eraser.setScale(0.1);
-    
     stopColoring = false;
     
     
@@ -222,7 +222,7 @@ function create ()
             if(pointer.isDown && redColor === true){
                 this.add.image(pointer.x, pointer.y, 'red');
                 stopColoring = false;
-                console.log(stopColoring);
+//                console.log(stopColoring);
                 randomVariable = false;
 
             }
@@ -499,7 +499,6 @@ function create ()
             
             if(imageIndex === 1){
                 bg2.setVisible(true);
-//                bg.setVisible(false);
             }
             if (imageIndex === 2){
                 bg3.setVisible(true);
@@ -508,8 +507,6 @@ function create ()
             }
             if (imageIndex === 3){
                 bg4.setVisible(true);
-//                bg2.setVisible(false);
-//                testIDK.setDepth(-2);
             }
               if (imageIndex === 4){
                 bg5.setVisible(true);
