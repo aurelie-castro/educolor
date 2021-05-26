@@ -58,6 +58,8 @@ let randomVariable;
 
 let eraser;
 
+let stopColoring;
+
 //façon pour enlever les warn inutiles dans la console
 //qui faisaient lagger la page
 console.warn = () => {};
@@ -167,11 +169,13 @@ function create ()
     testBoules.setScale(0.6);
     testBoules.setDepth(1);
     
-    randomVariable = true;
+    randomVariable = false;
     
     eraser = this.add.image(90, 580, 'eraser');
     eraser.setDepth(1);
     eraser.setScale(0.1);
+    
+    stopColoring = false;
     
     
 //--------background images------------
@@ -205,14 +209,21 @@ function create ()
                 
             if (pointer.isDown && blackColor === true)
             {
-                this.add.image(pointer.x, pointer.y, 'black');
+                if(stopColoring === false){
+                    testIDK = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
+                }
+                testIDK.on('pointermove', function(pointer){
+                     if(randomVariable === true){
+                        this.destroy();
+                         console.log(pointer.x);
+                     }});
             }
 
             if(pointer.isDown && redColor === true){
-                testIDK = this.add.image(pointer.x, pointer.y, 'red');
-//                if (randomVariable){
-//                     testIDK.setVisible(false);
-//                }
+                this.add.image(pointer.x, pointer.y, 'red');
+                stopColoring = false;
+                console.log(stopColoring);
+                randomVariable = false;
 
             }
 
@@ -255,6 +266,7 @@ function create ()
             if(pointer.isDown && greyColor === true){
                 this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
             }
+            
         }
         
         
@@ -470,6 +482,12 @@ function create ()
          if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
              bgImage.setVisible(false);
              startClicked = true;
+         }
+        
+        if(pointer.x >= 66 && pointer.x <= 112  && pointer.y >= 557 && pointer.y <=600){
+             randomVariable = true;
+            console.log("clicked on eraser");
+            stopColoring = true;
          }
         
     //-------------interaction du bouton next-------------
