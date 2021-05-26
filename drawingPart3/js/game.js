@@ -484,8 +484,24 @@ function create ()
 //                bg2.setVisible(false);
 //                testIDK.setDepth(-2);
             }
-            
-
+              if (imageIndex === 4){
+                bg5.setVisible(true);
+            }
+              if (imageIndex === 5){
+                bg6.setVisible(true);   
+            }
+             if (imageIndex === 6){
+                bg7.setVisible(true);
+            }
+             if (imageIndex === 7){
+                bg8.setVisible(true);
+            }
+             if (imageIndex === 8){
+                bg9.setVisible(true);
+            }
+             if (imageIndex === 9){
+                bg10.setVisible(true);
+            }
             
         }
         
