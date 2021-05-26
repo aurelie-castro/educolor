@@ -17,6 +17,7 @@ var bg;
 
 var bg2;
 var bg3;
+var bg4;
 
 //var des couleurs
 var blueColor;
@@ -45,6 +46,10 @@ var testTest;
 
 
 let imageIndex = 0;
+
+let startClicked;
+
+let randomVariable;
 
 //façon pour enlever les warn inutiles dans la console
 //qui faisaient lagger la page
@@ -140,6 +145,10 @@ function create ()
 //    bg3.setDepth(1);
     bg3.setVisible(false);
     
+    bg4 = this.add.image(100, 100, 'bg4');
+//    bg3.setDepth(1);
+    bg4.setVisible(false);
+    
 //-----couleur de base de la brush----
     blackColor = true;
     next1Clicked = false;
@@ -147,6 +156,8 @@ function create ()
 //---------image des deux rangées de cercles-----------
     testBoules = this.add.image(204, 52, 'testBoules');
     testBoules.setScale(0.6);
+    
+    randomVariable = true;
     
     
 //--------background images------------
@@ -176,16 +187,18 @@ function create ()
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
-        if(pointer.y > 108 && pointer.y < 535){
+        if(pointer.y > 108 && pointer.y < 535 && startClicked === true){
                 
             if (pointer.isDown && blackColor === true)
             {
-                    this.add.image(pointer.x, pointer.y, 'black');
+                this.add.image(pointer.x, pointer.y, 'black');
             }
-
 
             if(pointer.isDown && redColor === true){
                 testIDK = this.add.image(pointer.x, pointer.y, 'red');
+                if (randomVariable){
+                     testIDK.setVisible(false);
+                }
 
             }
 
@@ -442,6 +455,7 @@ function create ()
         //interaction si clic sur le btn play du start
          if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
              bgImage.setVisible(false);
+             startClicked = true;
          }
         
     //-------------interaction du bouton next-------------
@@ -460,6 +474,12 @@ function create ()
                 bg2.setVisible(false);
 //                testIDK.setDepth(-2);
             }
+            if (imageIndex === 3){
+                bg4.setVisible(true);
+                bg2.setVisible(false);
+//                testIDK.setDepth(-2);
+            }
+            
 
             
         }
