@@ -12,12 +12,17 @@ var config = {
 var game = new Phaser.Game(config);
 
 //---------variables globales-----------
-//var du background 1
+//var des backgrounds
 var bg;
-
 var bg2;
 var bg3;
 var bg4;
+var bg5;
+var bg6;
+var bg7;
+var bg8;
+var bg9;
+var bg10;
 
 //var des couleurs
 var blueColor;
@@ -467,16 +472,16 @@ function create ()
             
             if(imageIndex === 1){
                 bg2.setVisible(true);
-                bg.setVisible(false);
+//                bg.setVisible(false);
             }
             if (imageIndex === 2){
                 bg3.setVisible(true);
-                bg2.setVisible(false);
+//                bg2.setVisible(false);
 //                testIDK.setDepth(-2);
             }
             if (imageIndex === 3){
                 bg4.setVisible(true);
-                bg2.setVisible(false);
+//                bg2.setVisible(false);
 //                testIDK.setDepth(-2);
             }
             
