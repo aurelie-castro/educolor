@@ -56,6 +56,8 @@ let startClicked;
 
 let randomVariable;
 
+let eraser;
+
 //façon pour enlever les warn inutiles dans la console
 //qui faisaient lagger la page
 console.warn = () => {};
@@ -105,8 +107,8 @@ function preload ()
     
     
     //---background---
-    this.load.image('bg', '../assets/images/backgrounds/p1-new.jpeg');
-    this.load.image('bg2', '../assets/images/backgrounds/p2-1.jpeg');
+    this.load.image('bg', '../assets/images/newcover-01.jpg');
+    this.load.image('bg2', '../assets/images/bateau.jpg');
     this.load.image('bg3', '../assets/images/backgrounds/p2-2.jpeg');
     this.load.image('bg4', '../assets/images/backgrounds/p3-1.jpeg');
     this.load.image('bg5', '../assets/images/backgrounds/p3-3.jpeg');
@@ -126,6 +128,8 @@ function preload ()
     //-----rangées de cercles-----------
     this.load.image('testBoules', '../assets/images/palettes/couleurs-version3.png');
     
+    this.load.image('eraser', '../assets/images/eraser (2).png');
+    
     
     
 }
@@ -141,7 +145,7 @@ function create ()
     bgImage.setDepth(2);
     bgImage.setScale(1);
     
-    bg2 = this.add.image(100,100, 'bg2');    
+    bg2 = this.add.image(180, 320, 'bg2');    
 //    textBtn.setDepth(0);
     bg2.setVisible(false);
 //    bg2.setDepth(1);
@@ -161,8 +165,13 @@ function create ()
 //---------image des deux rangées de cercles-----------
     testBoules = this.add.image(204, 52, 'testBoules');
     testBoules.setScale(0.6);
+    testBoules.setDepth(1);
     
     randomVariable = true;
+    
+    eraser = this.add.image(90, 580, 'eraser');
+    eraser.setDepth(1);
+    eraser.setScale(0.1);
     
     
 //--------background images------------
@@ -177,8 +186,8 @@ function create ()
 //        bg = this.add.image(180, 300, 'bg');
 //        bg.setScale(0.5);
 //    }
-    bg = this.add.image(175, 330, 'bg');
-    bg.setScale(0.7);
+    bg = this.add.image(180, 320, 'bg');
+//    bg.setScale(0.7);
     
 //   
 //    this.add.image(100,100, 'test');
@@ -192,7 +201,7 @@ function create ()
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
-        if(pointer.y > 108 && pointer.y < 535 && startClicked === true){
+        if(pointer.y > 108 && pointer.y < 610 && pointer.x > 38 && startClicked === true){
                 
             if (pointer.isDown && blackColor === true)
             {
@@ -201,9 +210,9 @@ function create ()
 
             if(pointer.isDown && redColor === true){
                 testIDK = this.add.image(pointer.x, pointer.y, 'red');
-                if (randomVariable){
-                     testIDK.setVisible(false);
-                }
+//                if (randomVariable){
+//                     testIDK.setVisible(false);
+//                }
 
             }
 
@@ -464,7 +473,7 @@ function create ()
          }
         
     //-------------interaction du bouton next-------------
-        if(pointer.x >= 150 && pointer.x <= 186  && pointer.y >= 550 && pointer.y <=562){
+        if(pointer.x >= 273 && pointer.x <= 356  && pointer.y >= 562 && pointer.y <=636){
             console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
