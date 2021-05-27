@@ -66,7 +66,9 @@ console.warn = () => {};
 
 function preload ()
 {
+    //image de cover (educolor) avec le bouton start    
     var bgImage = this.load.image('testEdu', '../assets/images/covereducolor-02.jpg');
+    
     //--------brushes-------
     //white
     this.load.image('balls', './boules/blanc.png');
@@ -484,6 +486,7 @@ function create ()
              startClicked = true;
          }
         
+        //interaction si clic sur la gomme
         if(pointer.x >= 66 && pointer.x <= 112  && pointer.y >= 557 && pointer.y <=600){
              randomVariable = true;
             console.log("clicked on eraser");
@@ -491,6 +494,7 @@ function create ()
          }
         
     //-------------interaction du bouton next-------------
+//        next = this.add.text(150,550, 'NEXT');
         if(pointer.x >= 273 && pointer.x <= 356  && pointer.y >= 562 && pointer.y <=636){
             console.log("next cliqué");
             bg.setVisible(false);
@@ -555,7 +559,6 @@ function create ()
         }, this);
     
 //    var btnNext = this.add.image(100, 100, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
-    next = this.add.text(150,550, 'NEXT');
 //    problem2.setVisible(false);
 }
 
