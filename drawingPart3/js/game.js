@@ -47,7 +47,6 @@ var testBoules;
 //var du bouton next
 var next;
 
-var testTest;
 
 //conteur du nombre de fois où next a été cliqué
 let imageIndex = 0;
@@ -111,7 +110,7 @@ function preload ()
     this.load.image('grey', './boules/boule-bleupastel.png');
     
     
-    //---background---
+    //---backgrounds---
     this.load.image('bg', '../assets/images/newcover-01.jpg');
     this.load.image('bg2', '../assets/images/bateau.jpg');
     this.load.image('bg3', '../assets/images/backgrounds/p2-2.jpeg');
@@ -142,11 +141,7 @@ function preload ()
 
 function create ()
 {
-//    var test = this.add.sprite(100, 100, 'balls');
-//    test.setScale(0.5);
-    
-//    var TEST = this.add.image(200,620, 'blue');
-//    TEST.setScale(10);
+    //---start menu of game (cover)---
     bgImage = this.add.image(160, 320, 'testEdu');
     bgImage.setDepth(2);
     bgImage.setScale(1);
