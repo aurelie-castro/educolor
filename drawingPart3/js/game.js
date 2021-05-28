@@ -704,28 +704,27 @@ function create ()
     });
     
     //--------bouton pour mettre fullscreen------
-    var button = this.add.image(30, 160, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
+//    var button = this.add.image(30, 160, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
     //mettre ce bouton sur le start et mettre une icone belle
     //DOIT etre executé avec btnclick
 
-        button.on('pointerup', function () {
-
-            if (this.scale.isFullscreen)
-            {
-                button.setFrame(0);
-
-                this.scale.stopFullscreen();
-            }
-            else
-            {
-                button.setFrame(1);
-
-                this.scale.startFullscreen();
-            }
-
-        }, this);
+//        button.on('pointerup', function () {
+//
+//            if (this.scale.isFullscreen)
+//            {
+//                button.setFrame(0);
+//
+//                this.scale.stopFullscreen();
+//            }
+//            else
+//            {
+//                button.setFrame(1);
+//
+//                this.scale.startFullscreen();
+//            }
+//
+//        }, this);
     
-//    var btnNext = this.add.image(100, 100, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
-//    problem2.setVisible(false);
+
 }
 
