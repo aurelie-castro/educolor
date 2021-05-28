@@ -218,21 +218,42 @@ function create ()
                      if(randomVariable === true){
                         this.destroy();
                          console.log(pointer.x);
-                         blackColor = false;
+                         //dont know if following line is necessary
+//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && redColor === true){
-                this.add.image(pointer.x, pointer.y, 'red');
-                stopColoring = false;
+//                stopColoring = false;
 //                console.log(stopColoring);
-                randomVariable = false;
+//                randomVariable = false;
+                
+                if(stopColoring === false){
+                    testIDK = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
+                }
+                testIDK.on('pointermove', function(pointer){
+                     if(randomVariable === true){
+                        this.destroy();
+                         console.log(pointer.x);
+                         blackColor = false;
+                         stopColoring = true;
+                     }});
 
             }
 
             if(pointer.isDown && yellowColor === true){
-                this.add.image(pointer.x, pointer.y, 'yellow');
+//                this.add.image(pointer.x, pointer.y, 'yellow');
+                if(stopColoring === false){
+                    testIDK = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
+                }
+                testIDK.on('pointermove', function(pointer){
+                     if(randomVariable === true){
+                        this.destroy();
+                         console.log(pointer.x);
+                         blackColor = false;
+                         stopColoring = true;
+                     }});
             }
 
              if(pointer.isDown && greenColor === true){
@@ -302,6 +323,9 @@ function create ()
             greyColor = false; 
             blueLightColor = false;
             pinkColor = false;
+            
+            stopColoring = false;
+            randomVariable = false;
         }
         
         if(pointer.x >= 75 && pointer.x <= 103  && pointer.y >= 68 && pointer.y <=95){
@@ -318,6 +342,9 @@ function create ()
             greyColor = false; 
             blueLightColor = false;
             pinkColor = false;
+            
+            stopColoring = false;
+            randomVariable = false;
         }
         
         if(pointer.x >= 252 && pointer.x <= 281  && pointer.y >= 20 && pointer.y <=49){
