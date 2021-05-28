@@ -236,14 +236,12 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
 
             }
 
             if(pointer.isDown && yellowColor === true){
-//                this.add.image(pointer.x, pointer.y, 'yellow');
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
                 }
@@ -251,13 +249,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
              if(pointer.isDown && greenColor === true){
-//                this.add.image(pointer.x, pointer.y, 'green', Phaser.Math.Between(0, 10.3));
                  if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'green').setInteractive();
                 }
@@ -265,13 +261,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && purpleColor === true){
-//                this.add.image(pointer.x, pointer.y, 'purple', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'purple').setInteractive();
                 }
@@ -279,13 +273,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && blueLightColor === true){
-//                this.add.image(pointer.x, pointer.y, 'blueLight', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'blueLight').setInteractive();
                 }
@@ -293,13 +285,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && orangeColor === true){
-//                this.add.image(pointer.x, pointer.y, 'orange', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
                 }
@@ -307,13 +297,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && blueColor === true){
-//                this.add.image(pointer.x, pointer.y, 'blue', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'blue').setInteractive();
                 }
@@ -321,13 +309,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && greenKakiColor === true){
-//                this.add.image(pointer.x, pointer.y, 'greenKaki', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'greenKaki').setInteractive();
                 }
@@ -335,13 +321,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && brownColor === true){
-//                this.add.image(pointer.x, pointer.y, 'brown', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'brown').setInteractive();
                 }
@@ -349,13 +333,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && pinkColor === true){
-//                this.add.image(pointer.x, pointer.y, 'pink', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'pink').setInteractive();
                 }
@@ -363,13 +345,11 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
             if(pointer.isDown && greyColor === true){
-//                this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
                 }
@@ -377,7 +357,6 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
