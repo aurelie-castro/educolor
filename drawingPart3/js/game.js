@@ -42,7 +42,7 @@ var greyColor;
 var next1Clicked;
 
 //var des boules colorées
-var testBoules;
+var colorPalette;
 
 //var du bouton next
 var next;
@@ -130,7 +130,7 @@ function preload ()
     this.load.image('bg17', '../assets/images/backgrounds/p7-2.jpeg');
     
     //-----rangées de cercles-----------
-    this.load.image('testBoules', '../assets/images/palettes/couleurs-version3.png');
+    this.load.image('colorPalette', '../assets/images/palettes/couleurs-version3.png');
     
     //-----eraser---------------
     this.load.image('eraser', '../assets/images/eraser (2).png');
@@ -165,9 +165,9 @@ function create ()
     currentlyColoring = true;
     
 //---------image des deux rangées de cercles-----------
-    testBoules = this.add.image(204, 52, 'testBoules');
-    testBoules.setScale(0.6);
-    testBoules.setDepth(1);
+    colorPalette = this.add.image(204, 52, 'colorPalette');
+    colorPalette.setScale(0.6);
+    colorPalette.setDepth(1);
     
 //-------valeur des vars par rapport à la gomme-----------------
     erasingColors = false;
