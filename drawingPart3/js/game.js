@@ -209,7 +209,8 @@ function create ()
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
         if(pointer.y > 108 && pointer.y < 610 && pointer.x > 38 && startClicked === true){
-                
+            
+            //--black brush--
             if (pointer.isDown && blackColor === true)
             {
                 if(stopColoring === false){
@@ -219,17 +220,12 @@ function create ()
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
-                         //dont know if following line is necessary
-//                         blackColor = false;
                          stopColoring = true;
                      }});
             }
 
+            //--red brush--
             if(pointer.isDown && redColor === true){
-//                stopColoring = false;
-//                console.log(stopColoring);
-//                erasingColors = false;
-                
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
                 }
@@ -239,9 +235,9 @@ function create ()
                          console.log(pointer.x);
                          stopColoring = true;
                      }});
-
             }
-
+            
+            //--yellow brush--
             if(pointer.isDown && yellowColor === true){
                 //permet de dessiner
                 if(stopColoring === false){
@@ -255,7 +251,8 @@ function create ()
                          stopColoring = true;
                      }});
             }
-
+            
+            //--green brush--
              if(pointer.isDown && greenColor === true){
                  if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'green').setInteractive();
@@ -268,6 +265,7 @@ function create ()
                      }});
             }
 
+            //--purple brush--
             if(pointer.isDown && purpleColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'purple').setInteractive();
@@ -280,6 +278,7 @@ function create ()
                      }});
             }
 
+            //--light blue brush--
             if(pointer.isDown && blueLightColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'blueLight').setInteractive();
@@ -292,6 +291,7 @@ function create ()
                      }});
             }
 
+            //--orange brush--
             if(pointer.isDown && orangeColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
@@ -304,6 +304,7 @@ function create ()
                      }});
             }
 
+            //--blue brush--
             if(pointer.isDown && blueColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'blue').setInteractive();
@@ -316,6 +317,7 @@ function create ()
                      }});
             }
 
+            //--kaki green brush--
             if(pointer.isDown && greenKakiColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'greenKaki').setInteractive();
@@ -328,6 +330,7 @@ function create ()
                      }});
             }
 
+            //--brown brush--
             if(pointer.isDown && brownColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'brown').setInteractive();
@@ -340,6 +343,7 @@ function create ()
                      }});
             }
 
+            //--pink brush--
             if(pointer.isDown && pinkColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'pink').setInteractive();
@@ -352,6 +356,7 @@ function create ()
                      }});
             }
 
+            //--grey brush--
             if(pointer.isDown && greyColor === true){
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
@@ -376,7 +381,6 @@ function create ()
     //-----------------changement de couleur----------------------
     //quand l'user clique sur un des cercles pour choisir la couleur de sa brush
     this.input.on('pointerdown', function(pointer){
-        console.log('hello');
         console.log(pointer.x);
         console.log(pointer.y);
     
