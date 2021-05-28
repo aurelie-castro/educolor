@@ -56,7 +56,7 @@ let startClicked;
 
 
 //vars relatives à la gomme
-let randomVariable;
+let erasingColors;
 let eraser;
 let stopColoring;
 
@@ -173,7 +173,7 @@ function create ()
     testBoules.setDepth(1);
     
 //-------vars par rapport à la gomme-----------------
-    randomVariable = false;
+    erasingColors = false;
     eraser = this.add.image(90, 580, 'eraser');
     eraser.setDepth(1);
     eraser.setScale(0.1);
@@ -215,7 +215,7 @@ function create ()
                     testIDK = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
                 }
                 testIDK.on('pointermove', function(pointer){
-                     if(randomVariable === true){
+                     if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          //dont know if following line is necessary
@@ -227,13 +227,13 @@ function create ()
             if(pointer.isDown && redColor === true){
 //                stopColoring = false;
 //                console.log(stopColoring);
-//                randomVariable = false;
+//                erasingColors = false;
                 
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
                 }
                 testIDK.on('pointermove', function(pointer){
-                     if(randomVariable === true){
+                     if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          blackColor = false;
@@ -248,7 +248,7 @@ function create ()
                     testIDK = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
                 }
                 testIDK.on('pointermove', function(pointer){
-                     if(randomVariable === true){
+                     if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          blackColor = false;
@@ -325,7 +325,7 @@ function create ()
             pinkColor = false;
             
             stopColoring = false;
-            randomVariable = false;
+            erasingColors = false;
         }
         
         if(pointer.x >= 75 && pointer.x <= 103  && pointer.y >= 68 && pointer.y <=95){
@@ -344,7 +344,7 @@ function create ()
             pinkColor = false;
             
             stopColoring = false;
-            randomVariable = false;
+            erasingColors = false;
         }
         
         if(pointer.x >= 252 && pointer.x <= 281  && pointer.y >= 20 && pointer.y <=49){
@@ -508,7 +508,7 @@ function create ()
             blackColor = true;
             
             stopColoring = false;
-            randomVariable = false;
+            erasingColors = false;
             
         }
         
@@ -520,7 +520,7 @@ function create ()
         
         //interaction si clic sur la gomme
         if(pointer.x >= 66 && pointer.x <= 112  && pointer.y >= 557 && pointer.y <=600){
-            randomVariable = true;
+            erasingColors = true;
             console.log("clicked on eraser");
             stopColoring = true;
          }
