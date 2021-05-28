@@ -141,6 +141,12 @@ function preload ()
 
 function create ()
 {
+    //---tests for responsive---
+    let screenWidth = screen.width;
+    let screenHeight = screen.height;
+    console.log( 'the screen width is ' + screenWidth);
+    console.log( 'the screen height is ' + screenHeight);
+    
     //---start menu of game (cover)---
     bgImage = this.add.image(160, 320, 'testEdu');
     bgImage.setDepth(2);
@@ -189,6 +195,9 @@ function create ()
 //        bg.setScale(0.5);
 //    }
     bg = this.add.image(180, 320, 'bg');
+    if(screenHeight > 640){
+        bg.setScale(1.2);
+    }
 //    bg.setScale(0.7);
     
 //   
