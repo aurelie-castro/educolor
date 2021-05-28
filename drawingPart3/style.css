@@ -16,5 +16,55 @@ body {
     margin-top: 20;
     margin-bottom: 20
 */
+div > canvas{
+    background-color: purple;
+}
+/*
+canvas{
+        width: 410;
+        height: 732;
+}
+*/
+
+/*
+canvas{
+         width: 1000;
+    height: 1800;
+
+}
+*/
+
+
+
+/*this is the one!!!!!!!*/
+@media only screen and (max-width: 980px) {
+canvas{
+    width: 1000;
+    height: 1800;
+    }
 }
 
+
+
+
+
+
+
+
+/*
+@media only screen and (max-width: 1000px) {
+canvas{
+    width: 1000;
+    height: 1330;
+    }
+}
+*/
+
+/*
+@media only screen and (max-width: 390px) {
+canvas{
+    width: 50;
+    height: 1800;
+    }
+}
+*/

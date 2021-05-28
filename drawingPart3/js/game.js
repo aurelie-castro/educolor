@@ -6,7 +6,8 @@ var config = {
     scene: {
         preload: preload,
         create: create
-    }
+    },
+    backgroundColor: '#800080'
 };
 
 var game = new Phaser.Game(config);
@@ -135,17 +136,37 @@ function preload ()
     //-----eraser---------------
     this.load.image('eraser', '../assets/images/eraser (2).png');
     
-    
+//     this.objects = {};
     
 }
 
 function create ()
 {
+ 
+//    this.objects.camera.setBackgroundColor('rgba(255, 0, 0, 0.5)');
     //---tests for responsive---
     let screenWidth = screen.width;
     let screenHeight = screen.height;
     console.log( 'the screen width is ' + screenWidth);
     console.log( 'the screen height is ' + screenHeight);
+    
+    //works
+//     var x = document.getElementsByTagName("CANVAS");
+//    console.log(x);
+//    x[0].style.display = "block";
+//    if (screenWidth <= 400){
+//         x[0].style.width = "1000"; 
+//    }
+    
+    
+    
+    //didnt work
+//    if (screenWidth < 500 && screenWidth >400){
+//        x[0].style.height = "1900"; 
+//    }
+    console.log(screenWidth === 360);
+  
+    
     
     //---start menu of game (cover)---
     bgImage = this.add.image(160, 320, 'testEdu');
@@ -195,9 +216,12 @@ function create ()
 //        bg.setScale(0.5);
 //    }
     bg = this.add.image(180, 320, 'bg');
-    if(screenHeight > 640){
-        bg.setScale(1.2);
-    }
+//    if(screenHeight > 640){
+//        bg.setScale(1.2);
+//    }
+//    if(screenWidth <= 300){
+//        bg.setScale(0.8);
+//    }
 //    bg.setScale(0.7);
     
 //   
