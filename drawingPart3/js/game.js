@@ -369,7 +369,17 @@ function create ()
             }
 
             if(pointer.isDown && greyColor === true){
-                this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
+//                this.add.image(pointer.x, pointer.y, 'grey', Phaser.Math.Between(0, 10.3));
+                if(stopColoring === false){
+                    testIDK = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
+                }
+                testIDK.on('pointermove', function(pointer){
+                     if(erasingColors === true){
+                        this.destroy();
+                         console.log(pointer.x);
+//                         blackColor = false;
+                         stopColoring = true;
+                     }});
             }
             
         }
@@ -594,6 +604,9 @@ function create ()
             greyColor = true; 
             blueLightColor = false; 
             pinkColor = false;
+            
+            stopColoring = false;
+            erasingColors = false;
             
         }
         if(pointer.x >= 15 && pointer.x <= 44  && pointer.y >= 67 && pointer.y <=96){
