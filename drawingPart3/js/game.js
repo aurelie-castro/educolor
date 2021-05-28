@@ -299,7 +299,17 @@ function create ()
             }
 
             if(pointer.isDown && orangeColor === true){
-                this.add.image(pointer.x, pointer.y, 'orange', Phaser.Math.Between(0, 10.3));
+//                this.add.image(pointer.x, pointer.y, 'orange', Phaser.Math.Between(0, 10.3));
+                if(stopColoring === false){
+                    testIDK = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
+                }
+                testIDK.on('pointermove', function(pointer){
+                     if(erasingColors === true){
+                        this.destroy();
+                         console.log(pointer.x);
+//                         blackColor = false;
+                         stopColoring = true;
+                     }});
             }
 
             if(pointer.isDown && blueColor === true){
@@ -448,6 +458,9 @@ function create ()
             greyColor = false; 
             blueLightColor = false;
             pinkColor = false;
+            
+            stopColoring = false;
+            erasingColors = false;
         }
         
         if(pointer.x >= 309 && pointer.x <= 337  && pointer.y >= 19 && pointer.y <=49){
