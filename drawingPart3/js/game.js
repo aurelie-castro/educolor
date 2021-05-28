@@ -242,9 +242,9 @@ function create ()
             if (pointer.isDown && blackColor === true)
             {
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -255,9 +255,9 @@ function create ()
             //--red brush--
             if(pointer.isDown && redColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -269,10 +269,10 @@ function create ()
             if(pointer.isDown && yellowColor === true){
                 //permet de dessiner
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
                 }
                 //permet d'effacer
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -283,9 +283,9 @@ function create ()
             //--green brush--
              if(pointer.isDown && greenColor === true){
                  if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'green').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'green').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -296,9 +296,9 @@ function create ()
             //--purple brush--
             if(pointer.isDown && purpleColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'purple').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'purple').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -309,9 +309,9 @@ function create ()
             //--light blue brush--
             if(pointer.isDown && blueLightColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'blueLight').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'blueLight').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -322,9 +322,9 @@ function create ()
             //--orange brush--
             if(pointer.isDown && orangeColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -335,9 +335,9 @@ function create ()
             //--blue brush--
             if(pointer.isDown && blueColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'blue').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'blue').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -348,9 +348,9 @@ function create ()
             //--kaki green brush--
             if(pointer.isDown && greenKakiColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'greenKaki').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'greenKaki').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -361,9 +361,9 @@ function create ()
             //--brown brush--
             if(pointer.isDown && brownColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'brown').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'brown').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -374,9 +374,9 @@ function create ()
             //--pink brush--
             if(pointer.isDown && pinkColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'pink').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'pink').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -387,9 +387,9 @@ function create ()
             //--grey brush--
             if(pointer.isDown && greyColor === true){
                 if(currentlyColoring === true){
-                    testIDK = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
+                    brushStroke = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
                 }
-                testIDK.on('pointermove', function(pointer){
+                brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
@@ -608,7 +608,7 @@ function create ()
         }
         
         if(pointer.x >= 254 && pointer.x <= 279  && pointer.y >= 69 && pointer.y <=97){
-            testIDK.setVisible(false);
+            brushStroke.setVisible(false);
             console.log('cliqué sur le grey');
             yellowColor = false;
             greenColor = false;
@@ -674,7 +674,7 @@ function create ()
             if (imageIndex === 2){
                 bg3.setVisible(true);
 //                bg2.setVisible(false);
-//                testIDK.setDepth(-2);
+//                brushStroke.setDepth(-2);
             }
             if (imageIndex === 3){
                 bg4.setVisible(true);
