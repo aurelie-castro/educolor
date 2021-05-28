@@ -218,6 +218,8 @@ function create ()
                      if(randomVariable === true){
                         this.destroy();
                          console.log(pointer.x);
+                         blackColor = false;
+                         stopColoring = true;
                      }});
             }
 
@@ -478,6 +480,9 @@ function create ()
             pinkColor = false;
             blackColor = true;
             
+            stopColoring = false;
+            randomVariable = false;
+            
         }
         
         //interaction si clic sur le btn play du start
@@ -488,7 +493,7 @@ function create ()
         
         //interaction si clic sur la gomme
         if(pointer.x >= 66 && pointer.x <= 112  && pointer.y >= 557 && pointer.y <=600){
-             randomVariable = true;
+            randomVariable = true;
             console.log("clicked on eraser");
             stopColoring = true;
          }
