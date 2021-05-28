@@ -52,10 +52,11 @@ var testTest;
 //conteur du nombre de fois où next a été cliqué
 let imageIndex = 0;
 
+//var pour le menu de démarrage
 let startClicked;
 
 
-//vars relatives à la gomme
+//déclaration des vars relatives à la gomme
 let erasingColors;
 let eraser;
 let stopColoring;
@@ -172,7 +173,7 @@ function create ()
     testBoules.setScale(0.6);
     testBoules.setDepth(1);
     
-//-------vars par rapport à la gomme-----------------
+//-------valeur des vars par rapport à la gomme-----------------
     erasingColors = false;
     eraser = this.add.image(90, 580, 'eraser');
     eraser.setDepth(1);
@@ -203,7 +204,7 @@ function create ()
     this.input.on('pointermove', function (pointer) {
         
         //si user déplace sa souris/doigt sur l'image 
-        //et cela fait apparaître une boule colorée (de la couleur choisie)
+        //cela fait apparaître une boule colorée (de la couleur choisie)
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
@@ -242,9 +243,11 @@ function create ()
             }
 
             if(pointer.isDown && yellowColor === true){
+                //permet de dessiner
                 if(stopColoring === false){
                     testIDK = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
                 }
+                //permet d'effacer
                 testIDK.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
@@ -379,8 +382,11 @@ function create ()
     
         
         if(pointer.x >= 134 && pointer.x <= 164  && pointer.y >= 21 && pointer.y <=49){
+            //couleur choisie
             console.log('cliqué sur le yellow');
             yellowColor = true;
+            
+            //couleurs desactivées
             greenColor = false;
             redColor = false;
             blueColor = false;
@@ -393,6 +399,7 @@ function create ()
             blueLightColor = false;
             pinkColor = false;
             
+            //pour arrêter d'effacer
             stopColoring = false;
             erasingColors = false;
         }
