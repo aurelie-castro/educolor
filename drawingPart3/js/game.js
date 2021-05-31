@@ -54,6 +54,7 @@ let imageIndex = 0;
 
 //var pour le menu de démarrage
 let startClicked;
+let gameStarted;
 
 
 //déclaration des vars relatives à la gomme
@@ -169,6 +170,7 @@ function create ()
     
     
     //---start menu of game (cover)---
+    var value = Phaser.Math.Between(1, 3);
     bgImage = this.add.image(160, 320, 'testEdu');
     bgImage.setDepth(2);
     bgImage.setScale(1);
@@ -210,12 +212,18 @@ function create ()
 //si le user clique sur next alors ça va chercher la valeur de 'dessin fini' dans le localstorage
 //et en dépendant de cette valeur, ça affiche la bonne image
     
-    var dessinFini = localStorage.getItem("dessin fini");
+    gameStarted = localStorage.getItem("start clicked");
+    console.log("is start clicked? " + gameStarted);
+    if (gameStarted === "yes"){
+        bgImage.setVisible(false);
+    }
 //    if(dessinFini === "0"){
 //        bg = this.add.image(180, 300, 'bg');
 //        bg.setScale(0.5);
 //    }
     bg = this.add.image(180, 320, 'bg');
+    bg.setVisible(false);
+    
 //    if(screenHeight > 640){
 //        bg.setScale(1.2);
 //    }
@@ -227,6 +235,37 @@ function create ()
 //   
 //    this.add.image(100,100, 'test');
     
+    if(value === 1){
+                bg.setVisible(true);
+            }
+            if (value === 2){
+                bg2.setVisible(true);
+//                bg2.setVisible(false);
+//                brushStroke.setDepth(-2);
+            }
+            if (value === 3){
+                bg3.setVisible(true);
+            }
+              if (value === 4){
+                bg5.setVisible(true);
+            }
+              if (value === 5){
+                bg6.setVisible(true);   
+            }
+             if (value === 6){
+                bg7.setVisible(true);
+            }
+             if (value === 7){
+                bg8.setVisible(true);
+            }
+             if (value === 8){
+                bg9.setVisible(true);
+            }
+             if (value === 9){
+                bg10.setVisible(true);
+            }
+    console.log(value +"is the value");
+    
     //----------------interaction des brush = dessin---------------------------
     
     this.input.on('pointermove', function (pointer) {
@@ -236,7 +275,8 @@ function create ()
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
-        if(pointer.y > 108 && pointer.y < 610 && pointer.x > 38 && startClicked === true){
+        if(pointer.y > 108 && pointer.y < 610 && pointer.x > 38
+          ){
             
             //--black brush--
             if (pointer.isDown && blackColor === true)
@@ -651,6 +691,7 @@ function create ()
          if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
              bgImage.setVisible(false);
              startClicked = true;
+            localStorage.setItem("start clicked", "yes");
          }
         
         //interaction si clic sur la gomme
@@ -666,37 +707,39 @@ function create ()
             console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
-            imageIndex++;
+            location.reload();
             
-            if(imageIndex === 1){
-                bg2.setVisible(true);
-            }
-            if (imageIndex === 2){
-                bg3.setVisible(true);
-//                bg2.setVisible(false);
-//                brushStroke.setDepth(-2);
-            }
-            if (imageIndex === 3){
-                bg4.setVisible(true);
-            }
-              if (imageIndex === 4){
-                bg5.setVisible(true);
-            }
-              if (imageIndex === 5){
-                bg6.setVisible(true);   
-            }
-             if (imageIndex === 6){
-                bg7.setVisible(true);
-            }
-             if (imageIndex === 7){
-                bg8.setVisible(true);
-            }
-             if (imageIndex === 8){
-                bg9.setVisible(true);
-            }
-             if (imageIndex === 9){
-                bg10.setVisible(true);
-            }
+//            imageIndex++;
+//            
+//            if(imageIndex === 1){
+//                bg2.setVisible(true);
+//            }
+//            if (imageIndex === 2){
+//                bg3.setVisible(true);
+////                bg2.setVisible(false);
+////                brushStroke.setDepth(-2);
+//            }
+//            if (imageIndex === 3){
+//                bg4.setVisible(true);
+//            }
+//              if (imageIndex === 4){
+//                bg5.setVisible(true);
+//            }
+//              if (imageIndex === 5){
+//                bg6.setVisible(true);   
+//            }
+//             if (imageIndex === 6){
+//                bg7.setVisible(true);
+//            }
+//             if (imageIndex === 7){
+//                bg8.setVisible(true);
+//            }
+//             if (imageIndex === 8){
+//                bg9.setVisible(true);
+//            }
+//             if (imageIndex === 9){
+//                bg10.setVisible(true);
+//            }
             
         }
         
