@@ -212,7 +212,7 @@ function create ()
 //si le user clique sur next alors ça va chercher la valeur de 'dessin fini' dans le localstorage
 //et en dépendant de cette valeur, ça affiche la bonne image
     
-    gameStarted = localStorage.getItem("start clicked");
+    gameStarted = sessionStorage.getItem("start clicked");
     console.log("is start clicked? " + gameStarted);
     if (gameStarted === "yes"){
         bgImage.setVisible(false);
@@ -691,7 +691,7 @@ function create ()
          if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
              bgImage.setVisible(false);
              startClicked = true;
-            localStorage.setItem("start clicked", "yes");
+            sessionStorage.setItem("start clicked", "yes");
          }
         
         //interaction si clic sur la gomme
