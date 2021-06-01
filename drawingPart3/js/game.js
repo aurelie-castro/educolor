@@ -69,7 +69,7 @@ console.warn = () => {};
 function preload ()
 {
     //image de cover (educolor) avec le bouton start    
-    var bgImage = this.load.image('testEdu', '../assets/images/Cover-01.jpg');
+    var bgImage = this.load.image('testEdu', 'assets/Cover-01.jpg');
     
     //--------brushes-------
     //white
@@ -113,29 +113,29 @@ function preload ()
     
     
     //---backgrounds---
-    this.load.image('bg', '../assets/images/backgrounds/00 TAPA TRANSPORTS 2-01 (1).jpg');
-    this.load.image('bg2', '../assets/images/bateau.jpg');
-    this.load.image('bg3', '../assets/images/backgrounds/p2-2.jpeg');
-//    this.load.image('bg4', '../assets/images/backgrounds/p3-1.jpeg');
-//    this.load.image('bg5', '../assets/images/backgrounds/p3-3.jpeg');
-//    this.load.image('bg6', '../assets/images/backgrounds/p4-1.jpeg');
-//    this.load.image('bg7', '../assets/images/backgrounds/p4-2.jpeg');
-//    this.load.image('bg8', '../assets/images/backgrounds/p4-3.jpeg');
-//    this.load.image('bg9', '../assets/images/backgrounds/p4-4.jpeg');
-//    this.load.image('bg10', '../assets/images/backgrounds/p5-1.jpeg');
-//    this.load.image('bg11', '../assets/images/backgrounds/p5-2.jpeg');
-//    this.load.image('bg12', '../assets/images/backgrounds/p5-3.jpeg');
-//    this.load.image('bg13', '../assets/images/backgrounds/p6-1.jpeg');
-//    this.load.image('bg14', '../assets/images/backgrounds/p6-2.jpeg');
-//    this.load.image('bg15', '../assets/images/backgrounds/p6-3.jpeg');
-//    this.load.image('bg16', '../assets/images/backgrounds/p7-1.jpeg');
-//    this.load.image('bg17', '../assets/images/backgrounds/p7-2.jpeg');
+    this.load.image('bg', 'assets/00 TAPA TRANSPORTS 2-01 (1).jpg');
+    this.load.image('bg2', 'assets/bateau.jpg');
+    this.load.image('bg3', 'assets/p2-2.jpeg');
+//    this.load.image('bg4', 'assets/p3-1.jpeg');
+//    this.load.image('bg5', 'assets/p3-3.jpeg');
+//    this.load.image('bg6', 'assets/p4-1.jpeg');
+//    this.load.image('bg7', 'assets/p4-2.jpeg');
+//    this.load.image('bg8', 'assets/p4-3.jpeg');
+//    this.load.image('bg9', 'assets/p4-4.jpeg');
+//    this.load.image('bg10', 'assets/p5-1.jpeg');
+//    this.load.image('bg11', 'assets/p5-2.jpeg');
+//    this.load.image('bg12', 'assets/p5-3.jpeg');
+//    this.load.image('bg13', 'assets/p6-1.jpeg');
+//    this.load.image('bg14', 'assets/p6-2.jpeg');
+//    this.load.image('bg15', 'assets/p6-3.jpeg');
+//    this.load.image('bg16', 'assets/p7-1.jpeg');
+//    this.load.image('bg17', 'assets/p7-2.jpeg');
     
     //-----rangées de cercles-----------
-    this.load.image('colorPalette', '../assets/images/palettes/couleurs-version3.png');
+    this.load.image('colorPalette', 'assets/couleurs-version3.png');
     
     //-----eraser---------------
-    this.load.image('eraser', '../assets/images/eraser (2).png');
+    this.load.image('eraser', 'assets/eraser (2).png');
     
 //     this.objects = {};
     
