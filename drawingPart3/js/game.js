@@ -62,6 +62,9 @@ let erasingColors;
 let eraser;
 let currentlyColoring;
 
+//déclaration des vars de son
+let testSound;
+
 //façon pour enlever les warn inutiles dans la console
 //qui faisaient lagger la page
 console.warn = () => {};
@@ -113,14 +116,14 @@ function preload ()
     
     
     //---backgrounds---
-    this.load.image('bg', 'assets/00 TAPA TRANSPORTS 2-01 (1).jpg');
-    this.load.image('bg2', 'assets/bateau.jpg');
-    this.load.image('bg3', 'assets/p2-2.jpeg');
-//    this.load.image('bg4', 'assets/p3-1.jpeg');
-//    this.load.image('bg5', 'assets/p3-3.jpeg');
-//    this.load.image('bg6', 'assets/p4-1.jpeg');
-//    this.load.image('bg7', 'assets/p4-2.jpeg');
-//    this.load.image('bg8', 'assets/p4-3.jpeg');
+    this.load.image('bg', 'assets/01 TAPA TRANSPORTS 2.jpg');
+    this.load.image('bg2', 'assets/04 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg3', 'assets/06 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg4', 'assets/07 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg5', 'assets/10 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg6', 'assets/15 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg7', 'assets/16 TAPA TRANSPORTS 2-01.jpg');
+    this.load.image('bg8', 'assets/21 TAPA TRANSPORTS 2-01.jpg');
 //    this.load.image('bg9', 'assets/p4-4.jpeg');
 //    this.load.image('bg10', 'assets/p5-1.jpeg');
 //    this.load.image('bg11', 'assets/p5-2.jpeg');
@@ -135,14 +138,19 @@ function preload ()
     this.load.image('colorPalette', 'assets/couleurs-version3.png');
     
     //-----eraser---------------
-    this.load.image('eraser', 'assets/eraser (2).png');
+//    this.load.image('eraser', 'assets/eraser (2).png');
     
 //     this.objects = {};
+    
+    this.load.audio('testAudio', 'assets/airport.wav');
     
 }
 
 function create ()
 {
+    
+    testSound = this.sound.add('testAudio');
+    
  
 //    this.objects.camera.setBackgroundColor('rgba(255, 0, 0, 0.5)');
     //---tests for responsive---
@@ -170,23 +178,35 @@ function create ()
     
     
     //---start menu of game (cover)---
-    var value = Phaser.Math.Between(1, 3);
-    bgImage = this.add.image(180, 320, 'testEdu');
+    var value = Phaser.Math.Between(1, 8);
+    bgImage = this.add.image(180, 315, 'testEdu');
     bgImage.setDepth(2);
 //    bgImage.setScale(1);
     
-    bg2 = this.add.image(180, 320, 'bg2');    
+    bg2 = this.add.image(180, 315, 'bg2');    
 //    textBtn.setDepth(0);
     bg2.setVisible(false);
 //    bg2.setDepth(1);
     
-    bg3 = this.add.image(100, 100, 'bg3');
+    bg3 = this.add.image(180, 315, 'bg3');
 //    bg3.setDepth(1);
     bg3.setVisible(false);
     
-    bg4 = this.add.image(100, 100, 'bg4');
+    bg4 = this.add.image(180, 315, 'bg4');
 //    bg3.setDepth(1);
     bg4.setVisible(false);
+    
+    bg5 = this.add.image(180, 315, 'bg5');
+    bg5.setVisible(false);
+    
+    bg6 = this.add.image(180, 315, 'bg6');
+    bg6.setVisible(false);
+    
+    bg7 = this.add.image(180, 315, 'bg7');
+    bg7.setVisible(false);
+    
+    bg8 = this.add.image(180, 315, 'bg8');
+    bg8.setVisible(false);
     
 //-----couleur de base de la brush----
     blackColor = true;
@@ -200,9 +220,9 @@ function create ()
     
 //-------valeur des vars par rapport à la gomme-----------------
     erasingColors = false;
-    eraser = this.add.image(90, 580, 'eraser');
-    eraser.setDepth(1);
-    eraser.setScale(0.1);
+//    eraser = this.add.image(90, 580, 'eraser');
+//    eraser.setDepth(1);
+//    eraser.setScale(0.1);
     
     
 //--------background images------------
@@ -221,7 +241,7 @@ function create ()
 //        bg = this.add.image(180, 300, 'bg');
 //        bg.setScale(0.5);
 //    }
-    bg = this.add.image(180, 320, 'bg');
+    bg = this.add.image(180, 315, 'bg');
     bg.setVisible(false);
     
 //    if(screenHeight > 640){
@@ -247,19 +267,19 @@ function create ()
                 bg3.setVisible(true);
             }
               if (value === 4){
-                bg5.setVisible(true);
+                bg4.setVisible(true);
             }
               if (value === 5){
-                bg6.setVisible(true);   
+                bg5.setVisible(true);   
             }
              if (value === 6){
-                bg7.setVisible(true);
+                bg6.setVisible(true);
             }
              if (value === 7){
-                bg8.setVisible(true);
+                bg7.setVisible(true);
             }
              if (value === 8){
-                bg9.setVisible(true);
+                bg8.setVisible(true);
             }
              if (value === 9){
                 bg10.setVisible(true);
@@ -277,11 +297,11 @@ function create ()
         
         if(pointer.y > 108 && pointer.y < 610
           ){
-            
             //--black brush--
             if (pointer.isDown && blackColor === true)
             {
                 //permet de dessiner
+                game.sound.mute = true;
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
                 }
@@ -293,6 +313,9 @@ function create ()
 //                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+                if (pointer.x >= 290 && pointer.x <= 300  && pointer.y >= 185 && pointer.y <=192){
+                    console.log("yeayjfhdfg");
                 }
                
             }
@@ -509,6 +532,8 @@ function create ()
             //pour arrêter d'effacer
             currentlyColoring = true;
             erasingColors = false;
+            
+            
         }
         
         if(pointer.x >= 75 && pointer.x <= 103  && pointer.y >= 68 && pointer.y <=95){
@@ -726,6 +751,8 @@ function create ()
              console.log("cliqué sur start");
              bgImage.setVisible(false);
              startClicked = true;
+//             game.sound.mute = false;
+//             testSound.play();
             sessionStorage.setItem("start clicked", "yes");
          }
         

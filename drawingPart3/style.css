@@ -2,6 +2,7 @@ body {
 /*    background-image : url("educolor-example.jpg");*/
     margin: 0;
     background-color: #F07D2F;
+    background-image: url(assets/testpattern.jpg);
 /*    padding: :0;*/
 /*    background-color: aquamarine;*/
 }
@@ -17,9 +18,11 @@ body {
     margin-top: 20;
     margin-bottom: 20
 */
+/*
 div > canvas{
     background-color: purple;
 }
+*/
 /*
 canvas{
         width: 410;
