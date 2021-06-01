@@ -69,7 +69,7 @@ console.warn = () => {};
 function preload ()
 {
     //image de cover (educolor) avec le bouton start    
-    var bgImage = this.load.image('testEdu', '../assets/images/covereducolor-02.jpg');
+    var bgImage = this.load.image('testEdu', '../assets/images/Cover-01.jpg');
     
     //--------brushes-------
     //white
@@ -113,7 +113,7 @@ function preload ()
     
     
     //---backgrounds---
-    this.load.image('bg', '../assets/images/newcover-01.jpg');
+    this.load.image('bg', '../assets/images/backgrounds/00 TAPA TRANSPORTS 2-01 (1).jpg');
     this.load.image('bg2', '../assets/images/bateau.jpg');
     this.load.image('bg3', '../assets/images/backgrounds/p2-2.jpeg');
     this.load.image('bg4', '../assets/images/backgrounds/p3-1.jpeg');
@@ -171,9 +171,9 @@ function create ()
     
     //---start menu of game (cover)---
     var value = Phaser.Math.Between(1, 3);
-    bgImage = this.add.image(160, 320, 'testEdu');
+    bgImage = this.add.image(180, 320, 'testEdu');
     bgImage.setDepth(2);
-    bgImage.setScale(1);
+//    bgImage.setScale(1);
     
     bg2 = this.add.image(180, 320, 'bg2');    
 //    textBtn.setDepth(0);
@@ -213,7 +213,7 @@ function create ()
 //et en dépendant de cette valeur, ça affiche la bonne image
     
     gameStarted = sessionStorage.getItem("start clicked");
-    console.log("is start clicked? " + gameStarted);
+    console.log("has start been clicked ? " + gameStarted);
     if (gameStarted === "yes"){
         bgImage.setVisible(false);
     }
@@ -235,7 +235,7 @@ function create ()
 //   
 //    this.add.image(100,100, 'test');
     
-    if(value === 1){
+            if(value === 1){
                 bg.setVisible(true);
             }
             if (value === 2){
@@ -264,7 +264,7 @@ function create ()
              if (value === 9){
                 bg10.setVisible(true);
             }
-    console.log(value +"is the value");
+    console.log(value +" is the value for the bg image");
     
     //----------------interaction des brush = dessin---------------------------
     
@@ -275,21 +275,26 @@ function create ()
         //à l'endroit où il a fait cela
         //si le user ne selectionne pas de couleur, alors la couleur de la brush sera d'office noire
         
-        if(pointer.y > 108 && pointer.y < 610 && pointer.x > 38
+        if(pointer.y > 108 && pointer.y < 610
           ){
             
             //--black brush--
             if (pointer.isDown && blackColor === true)
             {
+                //permet de dessiner
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'black').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                //permet d'éffacer
+                if(typeof brushStroke !== 'undefined'){
+                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
+//                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+               
             }
 
             //--red brush--
@@ -297,12 +302,14 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'red').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
-                     if(erasingColors === true){
-                        this.destroy();
-                         console.log(pointer.x);
-                         currentlyColoring = false;
-                     }});
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
+                         if(erasingColors === true){
+                            this.destroy();
+                             console.log(pointer.x);
+                             currentlyColoring = false;
+                         }});
+                }
             }
             
             //--yellow brush--
@@ -312,12 +319,15 @@ function create ()
                     brushStroke = this.add.image(pointer.x, pointer.y, 'yellow').setInteractive();
                 }
                 //permet d'effacer
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+
             }
             
             //--green brush--
@@ -325,12 +335,15 @@ function create ()
                  if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'green').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                 
+                 if(typeof brushStroke !== 'undefined'){
+                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                 }
             }
 
             //--purple brush--
@@ -338,12 +351,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'purple').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                   brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
-                     }});
+                     }}); 
+                }
+                
             }
 
             //--light blue brush--
@@ -351,12 +367,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'blueLight').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                   brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
-                     }});
+                     }}); 
+                }
+                
             }
 
             //--orange brush--
@@ -364,12 +383,14 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'orange').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
             }
 
             //--blue brush--
@@ -377,12 +398,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'blue').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+                
             }
 
             //--kaki green brush--
@@ -390,12 +414,14 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'greenKaki').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
             }
 
             //--brown brush--
@@ -403,12 +429,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'brown').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+                
             }
 
             //--pink brush--
@@ -416,12 +445,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'pink').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
+//                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+                
             }
 
             //--grey brush--
@@ -429,12 +461,15 @@ function create ()
                 if(currentlyColoring === true){
                     brushStroke = this.add.image(pointer.x, pointer.y, 'grey').setInteractive();
                 }
-                brushStroke.on('pointermove', function(pointer){
+                if(typeof brushStroke !== 'undefined'){
+                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
                          console.log(pointer.x);
                          currentlyColoring = false;
                      }});
+                }
+                
             }
             
         }
@@ -648,7 +683,6 @@ function create ()
         }
         
         if(pointer.x >= 254 && pointer.x <= 279  && pointer.y >= 69 && pointer.y <=97){
-            brushStroke.setVisible(false);
             console.log('cliqué sur le grey');
             yellowColor = false;
             greenColor = false;
@@ -688,14 +722,15 @@ function create ()
         }
         
         //interaction si clic sur le btn play du start
-         if(pointer.x >= 2 && pointer.x <= 146  && pointer.y >= 430 && pointer.y <=580){
+         if(pointer.x >= 44 && pointer.x <= 157  && pointer.y >= 383 && pointer.y <=497){
+             console.log("cliqué sur start");
              bgImage.setVisible(false);
              startClicked = true;
             sessionStorage.setItem("start clicked", "yes");
          }
         
         //interaction si clic sur la gomme
-        if(pointer.x >= 66 && pointer.x <= 112  && pointer.y >= 557 && pointer.y <=600){
+        if(pointer.x >= 3 && pointer.x <= 92  && pointer.y >= 560 && pointer.y <=629){
             erasingColors = true;
             console.log("clicked on eraser");
             currentlyColoring = false;
@@ -709,6 +744,7 @@ function create ()
             next1Clicked = true;
             location.reload();
             
+            //ancienne méthode pour passer d'une image à l'autre
 //            imageIndex++;
 //            
 //            if(imageIndex === 1){
