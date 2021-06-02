@@ -72,6 +72,14 @@ canvas{
     }
 }
 
+@media only screen and (min-width: 1100px)  {
+canvas{
+    width: 450px;
+    height: 810px;
+    margin-left:35%;
+    }
+}
+
 
 
 
