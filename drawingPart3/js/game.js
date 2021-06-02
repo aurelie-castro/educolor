@@ -137,9 +137,6 @@ function preload ()
     //-----rangées de cercles-----------
     this.load.image('colorPalette', 'assets/couleurs-version3.png');
     
-    //-----eraser---------------
-//    this.load.image('eraser', 'assets/eraser (2).png');
-    
     
     this.load.audio('testAudio', 'assets/airport.wav');
     
@@ -156,24 +153,13 @@ function create ()
     console.log( 'the screen width is ' + screenWidth);
     console.log( 'the screen height is ' + screenHeight);
     
-    //works
-//     var x = document.getElementsByTagName("CANVAS");
-//    console.log(x);
-//    x[0].style.display = "block";
-//    if (screenWidth <= 400){
-//         x[0].style.width = "1000"; 
-//    }
-    
-    
     //---start menu of game (cover)---
-    var value = Phaser.Math.Between(1, 8);
     bgImage = this.add.image(180, 315, 'testEdu');
     bgImage.setDepth(2);
     
     //--------background images------------
-    //image de background 1 = dessin 1
-    // localStorage.setItem("dessin fini", "0"); 
     
+    //makes all images invisible
     bg = this.add.image(180, 315, 'bg');
     bg.setVisible(false);
     
@@ -198,6 +184,38 @@ function create ()
     bg8 = this.add.image(180, 315, 'bg8');
     bg8.setVisible(false);
     
+    //draws a random number from which
+    //to pick a bg image at every reload
+    var value = Phaser.Math.Between(1, 8);
+    
+    if(value === 1){
+            bg.setVisible(true);
+    }
+    if (value === 2){
+            bg2.setVisible(true);
+    }
+    if (value === 3){
+            bg3.setVisible(true);
+    }
+    if (value === 4){
+            bg4.setVisible(true);
+    }
+    if (value === 5){
+            bg5.setVisible(true);   
+    }
+    if (value === 6){
+            bg6.setVisible(true);
+    }
+    if (value === 7){
+            bg7.setVisible(true);
+    }
+    if (value === 8){
+            bg8.setVisible(true);
+    }
+    if (value === 9){
+            bg10.setVisible(true);
+    }
+    
 //-----couleur de base de la brush----
     blackColor = true;
     next1Clicked = false;
@@ -210,63 +228,12 @@ function create ()
     
 //-------valeur des vars par rapport à la gomme-----------------
     erasingColors = false;
-//    eraser = this.add.image(90, 580, 'eraser');
-//    eraser.setDepth(1);
-//    eraser.setScale(0.1);
-    
-    
-
-    
     
     gameStarted = sessionStorage.getItem("start clicked");
     console.log("has start been clicked ? " + gameStarted);
     if (gameStarted === "yes"){
         bgImage.setVisible(false);
     }
-//    if(dessinFini === "0"){
-//        bg = this.add.image(180, 300, 'bg');
-//        bg.setScale(0.5);
-//    }
-
-    
-//    if(screenHeight > 640){
-//        bg.setScale(1.2);
-//    }
-//    if(screenWidth <= 300){
-//        bg.setScale(0.8);
-//    }
-//    bg.setScale(0.7);
-    
-//   
-//    this.add.image(100,100, 'test');
-    
-            if(value === 1){
-                bg.setVisible(true);
-            }
-            if (value === 2){
-                bg2.setVisible(true);
-            }
-            if (value === 3){
-                bg3.setVisible(true);
-            }
-              if (value === 4){
-                bg4.setVisible(true);
-            }
-              if (value === 5){
-                bg5.setVisible(true);   
-            }
-             if (value === 6){
-                bg6.setVisible(true);
-            }
-             if (value === 7){
-                bg7.setVisible(true);
-            }
-             if (value === 8){
-                bg8.setVisible(true);
-            }
-             if (value === 9){
-                bg10.setVisible(true);
-            }
     console.log(value +" is the value for the bg image");
     
     //----------------interaction des brush = dessin---------------------------
@@ -311,7 +278,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                          if(erasingColors === true){
                             this.destroy();
-                             console.log(pointer.x);
                              currentlyColoring = false;
                          }});
                 }
@@ -741,66 +707,9 @@ function create ()
             next1Clicked = true;
             location.reload();
             
-            //ancienne méthode pour passer d'une image à l'autre
-//            imageIndex++;
-//            
-//            if(imageIndex === 1){
-//                bg2.setVisible(true);
-//            }
-//            if (imageIndex === 2){
-//                bg3.setVisible(true);
-////                bg2.setVisible(false);
-////                brushStroke.setDepth(-2);
-//            }
-//            if (imageIndex === 3){
-//                bg4.setVisible(true);
-//            }
-//              if (imageIndex === 4){
-//                bg5.setVisible(true);
-//            }
-//              if (imageIndex === 5){
-//                bg6.setVisible(true);   
-//            }
-//             if (imageIndex === 6){
-//                bg7.setVisible(true);
-//            }
-//             if (imageIndex === 7){
-//                bg8.setVisible(true);
-//            }
-//             if (imageIndex === 8){
-//                bg9.setVisible(true);
-//            }
-//             if (imageIndex === 9){
-//                bg10.setVisible(true);
-//            }
-            
         }
         
         
     });
-    
-    //--------bouton pour mettre fullscreen------
-//    var button = this.add.image(30, 160, 'fullscreen', 0).setOrigin(1, 0).setInteractive();
-    //mettre ce bouton sur le start et mettre une icone belle
-    //DOIT etre executé avec btnclick
-
-//        button.on('pointerup', function () {
-//
-//            if (this.scale.isFullscreen)
-//            {
-//                button.setFrame(0);
-//
-//                this.scale.stopFullscreen();
-//            }
-//            else
-//            {
-//                button.setFrame(1);
-//
-//                this.scale.startFullscreen();
-//            }
-//
-//        }, this);
-    
-
 }
 
