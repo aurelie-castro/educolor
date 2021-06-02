@@ -140,7 +140,6 @@ function preload ()
     //-----eraser---------------
 //    this.load.image('eraser', 'assets/eraser (2).png');
     
-//     this.objects = {};
     
     this.load.audio('testAudio', 'assets/airport.wav');
     
@@ -151,8 +150,6 @@ function create ()
     
     testSound = this.sound.add('testAudio');
     
- 
-//    this.objects.camera.setBackgroundColor('rgba(255, 0, 0, 0.5)');
     //---tests for responsive---
     let screenWidth = screen.width;
     let screenHeight = screen.height;
@@ -168,32 +165,25 @@ function create ()
 //    }
     
     
-    
-    //didnt work
-//    if (screenWidth < 500 && screenWidth >400){
-//        x[0].style.height = "1900"; 
-//    }
-    console.log(screenWidth === 360);
-  
-    
-    
     //---start menu of game (cover)---
     var value = Phaser.Math.Between(1, 8);
     bgImage = this.add.image(180, 315, 'testEdu');
     bgImage.setDepth(2);
-//    bgImage.setScale(1);
+    
+    //--------background images------------
+    //image de background 1 = dessin 1
+    // localStorage.setItem("dessin fini", "0"); 
+    
+    bg = this.add.image(180, 315, 'bg');
+    bg.setVisible(false);
     
     bg2 = this.add.image(180, 315, 'bg2');    
-//    textBtn.setDepth(0);
     bg2.setVisible(false);
-//    bg2.setDepth(1);
     
     bg3 = this.add.image(180, 315, 'bg3');
-//    bg3.setDepth(1);
     bg3.setVisible(false);
     
     bg4 = this.add.image(180, 315, 'bg4');
-//    bg3.setDepth(1);
     bg4.setVisible(false);
     
     bg5 = this.add.image(180, 315, 'bg5');
@@ -225,12 +215,8 @@ function create ()
 //    eraser.setScale(0.1);
     
     
-//--------background images------------
-//image de background 1 = dessin 1
-// localStorage.setItem("dessin fini", "0"); 
+
     
-//si le user clique sur next alors ça va chercher la valeur de 'dessin fini' dans le localstorage
-//et en dépendant de cette valeur, ça affiche la bonne image
     
     gameStarted = sessionStorage.getItem("start clicked");
     console.log("has start been clicked ? " + gameStarted);
@@ -241,8 +227,7 @@ function create ()
 //        bg = this.add.image(180, 300, 'bg');
 //        bg.setScale(0.5);
 //    }
-    bg = this.add.image(180, 315, 'bg');
-    bg.setVisible(false);
+
     
 //    if(screenHeight > 640){
 //        bg.setScale(1.2);
@@ -260,8 +245,6 @@ function create ()
             }
             if (value === 2){
                 bg2.setVisible(true);
-//                bg2.setVisible(false);
-//                brushStroke.setDepth(-2);
             }
             if (value === 3){
                 bg3.setVisible(true);
@@ -310,7 +293,6 @@ function create ()
                      brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-//                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -346,7 +328,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -363,7 +344,6 @@ function create ()
                      brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                  }
@@ -378,7 +358,6 @@ function create ()
                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }}); 
                 }
@@ -394,7 +373,6 @@ function create ()
                    brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }}); 
                 }
@@ -410,7 +388,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -425,7 +402,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -441,7 +417,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -456,7 +431,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -472,7 +446,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-//                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -488,7 +461,6 @@ function create ()
                     brushStroke.on('pointermove', function(pointer){
                      if(erasingColors === true){
                         this.destroy();
-                         console.log(pointer.x);
                          currentlyColoring = false;
                      }});
                 }
@@ -751,8 +723,6 @@ function create ()
              console.log("cliqué sur start");
              bgImage.setVisible(false);
              startClicked = true;
-//             game.sound.mute = false;
-//             testSound.play();
             sessionStorage.setItem("start clicked", "yes");
          }
         

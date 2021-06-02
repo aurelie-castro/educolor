@@ -49,6 +49,60 @@ canvas{
 }
 
 
+/*small phones*/
+/*
+@media only screen and (min-height: 900px)  {
+canvas{
+    width: 1000px;
+    height: 1800px;
+    margin-top: 10%;
+    }
+}
+*/
+
+
+
+/*big tablets (ipad pro) */
+
+@media only screen and (min-width: 1000px)  {
+canvas{
+    width: 750px;
+    height: 1350px;
+    margin-left:13%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+@media only screen and (max-width: 200px) {
+canvas{
+    width: 1000px;
+    height: 1350;
+    }
+}
+*/
+
+
 
 
 
