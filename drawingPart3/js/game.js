@@ -116,16 +116,16 @@ function preload ()
     
     
     //---backgrounds---
-    this.load.image('bg', 'assets/01 TAPA TRANSPORTS 2.jpg');
-    this.load.image('bg2', 'assets/04 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg3', 'assets/06 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg4', 'assets/07 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg5', 'assets/10 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg6', 'assets/15 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg7', 'assets/16 TAPA TRANSPORTS 2-01.jpg');
-    this.load.image('bg8', 'assets/21 TAPA TRANSPORTS 2-01.jpg');
-//    this.load.image('bg9', 'assets/p4-4.jpeg');
-//    this.load.image('bg10', 'assets/p5-1.jpeg');
+    this.load.image('bg', 'assets/new-bg1.jpg');
+    this.load.image('bg2', 'assets/bg2.jpg');
+    this.load.image('bg3', 'assets/bg3.jpg');
+    this.load.image('bg4', 'assets/bg4.jpg');
+    this.load.image('bg5', 'assets/bg5.jpg');
+    this.load.image('bg6', 'assets/bg6.jpg');
+    this.load.image('bg7', 'assets/new-bg7.jpg');
+    this.load.image('bg8', 'assets/bg8.jpg');
+    this.load.image('bg9', 'assets/bg9.jpg');
+    this.load.image('bg10', 'assets/bg10.jpg');
 //    this.load.image('bg11', 'assets/p5-2.jpeg');
 //    this.load.image('bg12', 'assets/p5-3.jpeg');
 //    this.load.image('bg13', 'assets/p6-1.jpeg');
@@ -150,8 +150,8 @@ function create ()
     //---tests for responsive---
     let screenWidth = screen.width;
     let screenHeight = screen.height;
-    console.log( 'the screen width is ' + screenWidth);
-    console.log( 'the screen height is ' + screenHeight);
+//    console.log( 'the screen width is ' + screenWidth);
+//    console.log( 'the screen height is ' + screenHeight);
     
     //---start menu of game (cover)---
     bgImage = this.add.image(180, 315, 'testEdu');
@@ -184,9 +184,15 @@ function create ()
     bg8 = this.add.image(180, 315, 'bg8');
     bg8.setVisible(false);
     
+    bg9 = this.add.image(180, 315, 'bg9');
+    bg9.setVisible(false);
+    
+    bg10 = this.add.image(180, 315, 'bg10');
+    bg10.setVisible(false);
+    
     //draws a random number from which
     //to pick a bg image at every reload
-    var value = Phaser.Math.Between(1, 8);
+    var value = Phaser.Math.Between(1, 10);
     
     if(value === 1){
             bg.setVisible(true);
@@ -213,6 +219,9 @@ function create ()
             bg8.setVisible(true);
     }
     if (value === 9){
+            bg9.setVisible(true);
+    }
+    if (value === 10){
             bg10.setVisible(true);
     }
     
@@ -230,11 +239,11 @@ function create ()
     erasingColors = false;
     
     gameStarted = sessionStorage.getItem("start clicked");
-    console.log("has start been clicked ? " + gameStarted);
+//    console.log("has start been clicked ? " + gameStarted);
     if (gameStarted === "yes"){
         bgImage.setVisible(false);
     }
-    console.log(value +" is the value for the bg image");
+//    console.log(value +" is the value for the bg image");
     
     //----------------interaction des brush = dessin---------------------------
     
@@ -262,9 +271,6 @@ function create ()
                         this.destroy();
                          currentlyColoring = false;
                      }});
-                }
-                if (pointer.x >= 290 && pointer.x <= 300  && pointer.y >= 185 && pointer.y <=192){
-                    console.log("yeayjfhdfg");
                 }
                
             }
@@ -445,13 +451,13 @@ function create ()
     //-----------------changement de couleur----------------------
     //quand l'user clique sur un des cercles pour choisir la couleur de sa brush
     this.input.on('pointerdown', function(pointer){
-        console.log(pointer.x);
-        console.log(pointer.y);
+//        console.log(pointer.x);
+//        console.log(pointer.y);
     
         
         if(pointer.x >= 134 && pointer.x <= 164  && pointer.y >= 21 && pointer.y <=49){
             //couleur choisie
-            console.log('cliqué sur le yellow');
+//            console.log('cliqué sur le yellow');
             yellowColor = true;
             
             //couleurs desactivées
@@ -475,7 +481,7 @@ function create ()
         }
         
         if(pointer.x >= 75 && pointer.x <= 103  && pointer.y >= 68 && pointer.y <=95){
-            console.log('cliqué sur le red');
+//            console.log('cliqué sur le red');
             yellowColor = false;
             greenColor = false;
             redColor = true;
@@ -494,7 +500,7 @@ function create ()
         }
         
         if(pointer.x >= 252 && pointer.x <= 281  && pointer.y >= 20 && pointer.y <=49){
-            console.log('cliqué sur le green');
+//            console.log('cliqué sur le green');
             greenColor = true;
             yellowColor = false;
             redColor = false;
@@ -513,7 +519,7 @@ function create ()
         }
         
         if(pointer.x >= 133 && pointer.x <= 161  && pointer.y >= 67 && pointer.y <=98){
-            console.log('cliqué sur le purple');
+//            console.log('cliqué sur le purple');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -532,7 +538,7 @@ function create ()
         }
         
         if(pointer.x >= 310 && pointer.x <= 338  && pointer.y >= 67 && pointer.y <=97){
-            console.log('cliqué sur le blue light');
+//            console.log('cliqué sur le blue light');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -551,7 +557,7 @@ function create ()
         }
         
         if(pointer.x >= 15 && pointer.x <= 45  && pointer.y >= 20 && pointer.y <=47){
-            console.log('cliqué sur le orange');
+//            console.log('cliqué sur le orange');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -570,7 +576,7 @@ function create ()
         }
         
         if(pointer.x >= 309 && pointer.x <= 337  && pointer.y >= 19 && pointer.y <=49){
-            console.log('cliqué sur le blue');
+//            console.log('cliqué sur le blue');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -589,7 +595,7 @@ function create ()
         }
         
         if(pointer.x >= 193 && pointer.x <= 223  && pointer.y >= 18 && pointer.y <=50){
-            console.log('cliqué sur le greenKaki');
+//            console.log('cliqué sur le greenKaki');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -608,7 +614,7 @@ function create ()
         }
         
         if(pointer.x >= 74 && pointer.x <= 103  && pointer.y >= 18 && pointer.y <=51){
-            console.log('cliqué sur le brown');
+//            console.log('cliqué sur le brown');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -627,7 +633,7 @@ function create ()
         }
         
         if(pointer.x >= 193 && pointer.x <= 221  && pointer.y >= 68 && pointer.y <=98){
-            console.log('cliqué sur le pink');
+//            console.log('cliqué sur le pink');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -646,7 +652,7 @@ function create ()
         }
         
         if(pointer.x >= 254 && pointer.x <= 279  && pointer.y >= 69 && pointer.y <=97){
-            console.log('cliqué sur le grey');
+//            console.log('cliqué sur le grey');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -665,7 +671,7 @@ function create ()
             
         }
         if(pointer.x >= 15 && pointer.x <= 44  && pointer.y >= 67 && pointer.y <=96){
-            console.log('cliqué sur le black');
+//            console.log('cliqué sur le black');
             yellowColor = false;
             greenColor = false;
             redColor = false;
@@ -686,7 +692,7 @@ function create ()
         
         //interaction si clic sur le btn play du start
          if(pointer.x >= 44 && pointer.x <= 157  && pointer.y >= 383 && pointer.y <=497){
-             console.log("cliqué sur start");
+//             console.log("cliqué sur start");
              bgImage.setVisible(false);
              startClicked = true;
             sessionStorage.setItem("start clicked", "yes");
@@ -695,14 +701,14 @@ function create ()
         //interaction si clic sur la gomme
         if(pointer.x >= 3 && pointer.x <= 92  && pointer.y >= 560 && pointer.y <=629){
             erasingColors = true;
-            console.log("clicked on eraser");
+//            console.log("clicked on eraser");
             currentlyColoring = false;
          }
         
     //-------------interaction du bouton next-------------
 //        next = this.add.text(150,550, 'NEXT');
         if(pointer.x >= 273 && pointer.x <= 356  && pointer.y >= 562 && pointer.y <=636){
-            console.log("next cliqué");
+//            console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
             location.reload();
