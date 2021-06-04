@@ -60,6 +60,17 @@ canvas{
 }
 */
 
+/*medium tablets*/
+/*
+@media only screen and (min-width: px)  {
+canvas{
+    width: 750px;
+    height: 1350px;
+    margin-left:13%;
+    width:1px;
+    }
+}
+*/
 
 
 /*big tablets (ipad pro) */
@@ -71,6 +82,7 @@ canvas{
     margin-left:13%;
     }
 }
+
 
 /*desktops*/
 @media only screen and (min-width: 1100px)  {
