@@ -1,5 +1,5 @@
 var config = {
-    type: Phaser.CANVAS,
+    type: Phaser.WEBGL,
     parent: 'phaser-example',
     width: 360,
     height: 640,
@@ -14,30 +14,10 @@ var game = new Phaser.Game(config);
 
 //---------variables globales-----------
 //var des backgrounds
-var bg;
-var bg2;
-var bg3;
-var bg4;
-var bg5;
-var bg6;
-var bg7;
-var bg8;
-var bg9;
-var bg10;
+var bg, bg2, bg3, bg4, bg5, bg6, bg7, bg8, bg9, bg10;
 
 //var des couleurs
-var blueColor;
-var redColor;
-var yellowColor;
-var greenColor;
-var purpleColor;
-var blueLightColor;
-var orangeColor;
-var blackColor;
-var greenKakiColor;
-var brownColor;
-var pinkColor;
-var greyColor;
+var blueColor, redColor, yellowColor, greenColor, purpleColor, blueLightColor, orangeColor, blackColor, greenKakiColor, brownColor, pinkColor, greyColor;
 
 //pas besoin
 var next1Clicked;
