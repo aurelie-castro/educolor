@@ -53,8 +53,10 @@ canvas{
 /*small phones*/
 @media only screen and (max-width: 980px) {
 canvas{
+/*
     width: 1000px;
     height: 1800px;
+*/
     
     width: 900px;
     height: 1600px;
