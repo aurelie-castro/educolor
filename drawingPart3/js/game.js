@@ -22,6 +22,8 @@ var blueColor, redColor, yellowColor, greenColor, purpleColor, blueLightColor, o
 //pas besoin
 var next1Clicked;
 
+var dessinFini;
+
 //var des boules colorées
 var colorPalette;
 
@@ -140,70 +142,117 @@ function create ()
     //--------background images------------
     
     //makes all images invisible
-    bg = this.add.image(180, 315, 'transport1');
-    bg.setVisible(false);
+    bg = this.add.image(180, 315, 'bg');
+//    bg.setVisible(false);
     
-    bg2 = this.add.image(180, 315, 'transport2');    
+    bg2 = this.add.image(180, 315, 'bg2');    
     bg2.setVisible(false);
     
-    bg3 = this.add.image(180, 315, 'transport3');
+    bg3 = this.add.image(180, 315, 'bg3');
     bg3.setVisible(false);
     
-    bg4 = this.add.image(180, 315, 'transport4');
+    bg4 = this.add.image(180, 315, 'bg4');
     bg4.setVisible(false);
     
-    bg5 = this.add.image(180, 315, 'transport5');
+    bg5 = this.add.image(180, 315, 'bg5');
     bg5.setVisible(false);
     
-    bg6 = this.add.image(180, 315, 'transport6');
+    bg6 = this.add.image(180, 315, 'bg6');
     bg6.setVisible(false);
     
-    bg7 = this.add.image(180, 315, 'transport7');
+    bg7 = this.add.image(180, 315, 'bg7');
     bg7.setVisible(false);
     
-    bg8 = this.add.image(180, 315, 'transport8');
+    bg8 = this.add.image(180, 315, 'bg8');
     bg8.setVisible(false);
     
-    bg9 = this.add.image(180, 315, 'transport9');
+    bg9 = this.add.image(180, 315, 'bg9');
     bg9.setVisible(false);
     
-    bg10 = this.add.image(180, 315, 'transport10');
+    bg10 = this.add.image(180, 315, 'bg10');
     bg10.setVisible(false);
     
     //draws a random number from which
     //to pick a bg image at every reload
-    var value = Phaser.Math.Between(1, 10);
+//    var value = Phaser.Math.Between(1, 10);
+//    
+//    if(value === 1){
+//            bg.setVisible(true);
+//    }
+//    if (value === 2){
+//            bg2.setVisible(true);
+//    }
+//    if (value === 3){
+//            bg3.setVisible(true);
+//    }
+//    if (value === 4){
+//            bg4.setVisible(true);
+//    }
+//    if (value === 5){
+//            bg5.setVisible(true);   
+//    }
+//    if (value === 6){
+//            bg6.setVisible(true);
+//    }
+//    if (value === 7){
+//            bg7.setVisible(true);
+//    }
+//    if (value === 8){
+//            bg8.setVisible(true);
+//    }
+//    if (value === 9){
+//            bg9.setVisible(true);
+//    }
+//    if (value === 10){
+//            bg10.setVisible(true);
+//    }
+//    localStorage.setItem("dessin fini", "0");
+    dessinFini = localStorage.getItem("dessin fini");
+    if(dessinFini === "0"){
+        bg.setVisible(true);
+    }
+    if(dessinFini === "1"){
+        bg2.setVisible(true);
+    }
+
+    if(dessinFini === "2"){
+        bg3.setVisible(true);
+    }
+    if(dessinFini === "3"){
+        bg4.setVisible(true);
+    }
+
+    if(dessinFini === "4"){
+       bg5.setVisible(true);
+    }
+
+    if(dessinFini === "5"){
+        bg6.setVisible(true);
+    }
+
+    if(dessinFini === "6"){
+        bg7.setVisible(true);
+    }
+
+    if(dessinFini === "7"){
+        bg8.setVisible(true);
+    }
+
+    if(dessinFini === "8"){
+        bg9.setVisible(true);
+    }
+
+    if(dessinFini === "9"){
+        bg10.setVisible(true);
+    }
     
-    if(value === 1){
-            bg.setVisible(true);
+    if(dessinFini === "10"){
+//        localStorage.clear();
+        sessionStorage.clear();
+        dessinFini = 0;
     }
-    if (value === 2){
-            bg2.setVisible(true);
-    }
-    if (value === 3){
-            bg3.setVisible(true);
-    }
-    if (value === 4){
-            bg4.setVisible(true);
-    }
-    if (value === 5){
-            bg5.setVisible(true);   
-    }
-    if (value === 6){
-            bg6.setVisible(true);
-    }
-    if (value === 7){
-            bg7.setVisible(true);
-    }
-    if (value === 8){
-            bg8.setVisible(true);
-    }
-    if (value === 9){
-            bg9.setVisible(true);
-    }
-    if (value === 10){
-            bg10.setVisible(true);
-    }
+
+
     
 //-----couleur de base de la brush----
     blackColor = true;
@@ -691,6 +740,10 @@ function create ()
 //            console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
+            dessinFini++;
+            
+            localStorage.setItem("dessin fini", dessinFini);
+            console.log(dessinFini);
             location.reload();
             
         }
