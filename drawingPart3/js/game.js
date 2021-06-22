@@ -30,6 +30,7 @@ var colorPalette;
 //var du bouton next
 var next;
 
+var refreshArrow;
 
 //conteur du nombre de fois où next a été cliqué
 let imageIndex = 0;
@@ -122,6 +123,8 @@ function preload ()
     
     this.load.audio('testAudio', 'assets/airport.wav');
     
+        this.load.image('refresh', 'assets/refresh (5).png');
+    
 }
 
 function create ()
@@ -138,6 +141,10 @@ function create ()
     //---start menu of game (cover)---
     bgImage = this.add.image(180, 315, 'testEdu');
     bgImage.setDepth(2);
+    
+    refreshArrow = this.add.image(317.5, 593, 'refresh');
+    refreshArrow.setDepth(1);
+    refreshArrow.setScale(0.14);
     
     //--------background images------------
     
