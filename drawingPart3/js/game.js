@@ -172,42 +172,9 @@ function create ()
     bg10 = this.add.image(180, 315, 'bg10');
     bg10.setVisible(false);
     
-    //draws a random number from which
-    //to pick a bg image at every reload
-//    var value = Phaser.Math.Between(1, 10);
-//    
-//    if(value === 1){
-//            bg.setVisible(true);
-//    }
-//    if (value === 2){
-//            bg2.setVisible(true);
-//    }
-//    if (value === 3){
-//            bg3.setVisible(true);
-//    }
-//    if (value === 4){
-//            bg4.setVisible(true);
-//    }
-//    if (value === 5){
-//            bg5.setVisible(true);   
-//    }
-//    if (value === 6){
-//            bg6.setVisible(true);
-//    }
-//    if (value === 7){
-//            bg7.setVisible(true);
-//    }
-//    if (value === 8){
-//            bg8.setVisible(true);
-//    }
-//    if (value === 9){
-//            bg9.setVisible(true);
-//    }
-//    if (value === 10){
-//            bg10.setVisible(true);
-//    }
-//    localStorage.setItem("dessin fini", "0");
+    //retrieves value of dessin fini = the number of times 'next' has been clicked
     dessinFini = localStorage.getItem("dessin fini");
+    //makes the corresponding image visible depending on that value
     if(dessinFini === "0"){
         bg.setVisible(true);
     }
@@ -248,7 +215,9 @@ function create ()
     
     if(dessinFini === "10"){
 //        localStorage.clear();
+        //clears the storage for the cover
         sessionStorage.clear();
+        //resets the counter to 0 to restart
         dessinFini = 0;
     }
 
@@ -740,10 +709,14 @@ function create ()
 //            console.log("next cliqué");
             bg.setVisible(false);
             next1Clicked = true;
+            
+            //counter of number of times it is clicked
             dessinFini++;
             
+            //makes the value of the storage come from the counter
             localStorage.setItem("dessin fini", dessinFini);
             console.log(dessinFini);
+            //reloads page
             location.reload();
             
         }
