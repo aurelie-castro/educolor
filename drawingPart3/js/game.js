@@ -96,16 +96,16 @@ function preload ()
     
     
     //---backgrounds---
-    this.load.image('bg', 'assets/new-bg1.jpg');
-    this.load.image('bg2', 'assets/bg2.jpg');
-    this.load.image('bg3', 'assets/bg3.jpg');
-    this.load.image('bg4', 'assets/bg4.jpg');
-    this.load.image('bg5', 'assets/bg5.jpg');
-    this.load.image('bg6', 'assets/bg6.jpg');
-    this.load.image('bg7', 'assets/new-bg7.jpg');
-    this.load.image('bg8', 'assets/bg8.jpg');
-    this.load.image('bg9', 'assets/bg9.jpg');
-    this.load.image('bg10', 'assets/bg10.jpg');
+    this.load.image('bg', 'assets/transport1.jpg');
+    this.load.image('bg2', 'assets/transport2.jpg');
+    this.load.image('bg3', 'assets/transport3.jpg');
+    this.load.image('bg4', 'assets/transport4.jpg');
+    this.load.image('bg5', 'assets/transport5.jpg');
+    this.load.image('bg6', 'assets/transport6.jpg');
+    this.load.image('bg7', 'assets/transport7.jpg');
+    this.load.image('bg8', 'assets/transport8.jpg');
+    this.load.image('bg9', 'assets/transport9.jpg');
+    this.load.image('bg10', 'assets/transport10.jpg');
 //    this.load.image('bg11', 'assets/p5-2.jpeg');
 //    this.load.image('bg12', 'assets/p5-3.jpeg');
 //    this.load.image('bg13', 'assets/p6-1.jpeg');
@@ -140,34 +140,34 @@ function create ()
     //--------background images------------
     
     //makes all images invisible
-    bg = this.add.image(180, 315, 'bg');
+    bg = this.add.image(180, 315, 'transport1');
     bg.setVisible(false);
     
-    bg2 = this.add.image(180, 315, 'bg2');    
+    bg2 = this.add.image(180, 315, 'transport2');    
     bg2.setVisible(false);
     
-    bg3 = this.add.image(180, 315, 'bg3');
+    bg3 = this.add.image(180, 315, 'transport3');
     bg3.setVisible(false);
     
-    bg4 = this.add.image(180, 315, 'bg4');
+    bg4 = this.add.image(180, 315, 'transport4');
     bg4.setVisible(false);
     
-    bg5 = this.add.image(180, 315, 'bg5');
+    bg5 = this.add.image(180, 315, 'transport5');
     bg5.setVisible(false);
     
-    bg6 = this.add.image(180, 315, 'bg6');
+    bg6 = this.add.image(180, 315, 'transport6');
     bg6.setVisible(false);
     
-    bg7 = this.add.image(180, 315, 'bg7');
+    bg7 = this.add.image(180, 315, 'transport7');
     bg7.setVisible(false);
     
-    bg8 = this.add.image(180, 315, 'bg8');
+    bg8 = this.add.image(180, 315, 'transport8');
     bg8.setVisible(false);
     
-    bg9 = this.add.image(180, 315, 'bg9');
+    bg9 = this.add.image(180, 315, 'transport9');
     bg9.setVisible(false);
     
-    bg10 = this.add.image(180, 315, 'bg10');
+    bg10 = this.add.image(180, 315, 'transport10');
     bg10.setVisible(false);
     
     //draws a random number from which
