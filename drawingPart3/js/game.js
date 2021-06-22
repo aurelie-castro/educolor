@@ -120,17 +120,13 @@ function preload ()
     //-----rangées de cercles-----------
     this.load.image('colorPalette', 'assets/couleurs-version3.png');
     
+    this.load.image('refresh', 'assets/refresh (5).png');
     
-    this.load.audio('testAudio', 'assets/airport.wav');
-    
-        this.load.image('refresh', 'assets/refresh (5).png');
     
 }
 
 function create ()
 {
-    
-    testSound = this.sound.add('testAudio');
     
     //---tests for responsive---
     let screenWidth = screen.width;
@@ -145,6 +141,7 @@ function create ()
     refreshArrow = this.add.image(317.5, 593, 'refresh');
     refreshArrow.setDepth(1);
     refreshArrow.setScale(0.14);
+    refreshArrow.setVisible(false);
     
     //--------background images------------
     
@@ -218,6 +215,7 @@ function create ()
 
     if(dessinFini === "9"){
         bg10.setVisible(true);
+        refreshArrow.setVisible(true);
     }
     
     if(dessinFini === "10"){
